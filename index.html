@@ -1,0 +1,3420 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Dynamischer Titel - wird von JS gesetzt -->
+    <title>Ana's Spanish Map | Spanisch lernen online</title>
+    
+    <!-- Dynamische Meta-Tags - wird von JS gesetzt -->
+    <meta name="description" content="Lerne Spanisch online mit Ana. Konversationsunterricht (A1-B2), maßgeschneidert. Buche deine kostenlose Probestunde.">
+    <meta name="keywords" content="Spanisch lernen, online, Spanischlehrerin, Konversation, Probestunde, DELE">
+    
+    <!-- SEO & Soziale Medien -->
+    <link rel="canonical" href="https://anas-spanish-map.com/">
+    <!-- Hreflang-Links werden von JS hinzugefügt -->
+    
+    <!-- Open Graph (dynamisch) -->
+    <meta property="og:title" content="Ana's Spanish Map | Spanisch lernen online">
+    <meta property="og:description" content="Lerne Spanisch online mit Ana. Konversationsunterricht (A1-B2), maßgeschneidert. Buche deine kostenlose Probestunde.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://anas-spanish-map.com/">
+    <meta property="og:image" content="https://anas-spanish-map.com/og-image.jpg">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:site_name" content="Ana's Spanish Map">
+    
+    <!-- Twitter Card (dynamisch) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ana's Spanish Map | Spanisch lernen online">
+    <meta name="twitter:description" content="Lerne Spanisch online mit Ana. Konversationsunterricht (A1-B2), maßgeschneidert. Buche deine kostenlose Probestunde.">
+    <meta name="twitter:image" content="https://anas-spanish-map.com/twitter-image.jpg">
+
+    <!-- Favicon (SVG Placeholder) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗺️</text></svg>">
+
+    <!-- Fonts: Preconnect und Preload Inter Variable Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    </noscript>
+
+    <!-- Schema.org JSON-LD (wird von JS dynamisch gefüllt) -->
+    <script type="application/ld+json" id="schema-org-data"></script>
+
+    <style>
+        /* -----------------------------------------------------------------
+        1. RESET & GRUNDEINSTELLUNGEN
+        -----------------------------------------------------------------
+        */
+        :root {
+            /* Helle Farbpalette (Light Mode) - NEUE PALETTE */
+            --color-text: #1F2937; /* Gray 800 */
+            --color-text-muted: #4B5563; /* Gray 600 */
+            --color-background: #FFFFFF; /* White */
+            --color-surface: #FFFFFF; /* White */
+            --color-primary: #2563EB; /* Blue 600 */
+            --color-primary-light: #EFF6FF; /* Blue 50 */
+            --color-primary-dark: #1D4ED8; /* Blue 700 */
+            --color-secondary: #E17A4F; /* Terracotta/Peach */
+            --color-secondary-light: #FEF6F3; /* Soft Peach */
+            --color-border: #E5E7EB; /* Gray 200 */
+            --color-shadow-raw: 100, 116, 139; /* Gray 500 für Schatten */
+            --color-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        
+            /* Dunkle Farbpalette (Dark Mode) - NEUE PALETTE */
+            --dark-color-text: #E5E7EB; /* Gray 200 */
+            --dark-color-text-muted: #9CA3AF; /* Gray 400 */
+            --dark-color-background: #111827; /* Gray 900 */
+            --dark-color-surface: #1F2937; /* Gray 800 */
+            --dark-color-primary: #60A5FA; /* Blue 400 */
+            --dark-color-primary-light: #1F2937; /* Gray 800 (für Hover) */
+            --dark-color-primary-dark: #3B82F6; /* Blue 500 */
+            --dark-color-secondary: #F3A080; /* Lighter Terracotta */
+            --dark-color-secondary-light: #302623; /* Dunkler Akzent-Hintergrund */
+            --dark-color-border: #374151; /* Gray 700 */
+            --dark-color-shadow-raw: 0, 0, 0;
+        
+            /* Typografie & Abstände */
+            --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            
+            /* Fluid Typography mit clamp() */
+            --font-size-xs: clamp(0.75rem, 0.69rem + 0.30vw, 0.94rem);
+            --font-size-sm: clamp(0.88rem, 0.80rem + 0.38vw, 1.13rem);
+            --font-size-base: clamp(1rem, 0.91rem + 0.45vw, 1.25rem); /* Basis 16px -> 20px */
+            --font-size-md: clamp(1.13rem, 1.01rem + 0.58vw, 1.50rem);
+            --font-size-lg: clamp(1.50rem, 1.30rem + 1.00vw, 2.13rem);
+            --font-size-xl: clamp(2.00rem, 1.65rem + 1.77vw, 3.00rem);
+            --font-size-xxl: clamp(2.50rem, 1.94rem + 2.80vw, 4.25rem);
+            
+            --line-height-base: 1.6;
+            --line-height-heading: 1.2;
+
+            /* Layout */
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --container-width: 1280px;
+            --container-padding: 1.5rem; /* 24px */
+
+            /* Übergänge & Schatten */
+            --transition-base: 300ms cubic-bezier(0.22, 1, 0.36, 1);
+            --transition-fast: 150ms cubic-bezier(0.22, 1, 0.36, 1);
+            --transition-motion: 400ms cubic-bezier(0.22, 1, 0.36, 1);
+            
+            --shadow-sm: 0 2px 4px -1px rgba(var(--shadow-color, var(--color-shadow-raw)), 0.06), 
+                          0 1px 2px -1px rgba(var(--shadow-color, var(--color-shadow-raw)), 0.05);
+            --shadow-md: 0 6px 12px -2px rgba(var(--shadow-color, var(--color-shadow-raw)), 0.08), 
+                          0 3px 7px -3px rgba(var(--shadow-color, var(--color-shadow-raw)), 0.07);
+            --shadow-lg: 0 12px 24px -4px rgba(var(--shadow-color, var(--color-shadow-raw)), 0.1), 
+                          0 8px 16px -8px rgba(var(--shadow-color, var(--color-shadow-raw)), 0.08);
+            
+            /* Z-Indizes */
+            --z-skip-link: 1001;
+            --z-toast: 1000;
+            --z-sticky-cta: 999;
+            --z-header: 990;
+            --z-progress-bar: 991;
+            --z-hero-content: 2;
+            --z-hero-bg: 1;
+        }
+
+        /* Dark Mode Initialisierung */
+        :root {
+            color-scheme: light;
+            --text-color: var(--color-text);
+            --text-muted-color: var(--color-text-muted);
+            --bg-color: var(--color-background);
+            --surface-color: var(--color-surface);
+            --primary-color: var(--color-primary);
+            --primary-light-color: var(--color-primary-light);
+            --primary-dark-color: var(--color-primary-dark);
+            --secondary-color: var(--color-secondary);
+            --secondary-light-color: var(--color-secondary-light);
+            --border-color: var(--color-border);
+            --shadow-color: var(--color-shadow-raw);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                color-scheme: dark;
+                --text-color: var(--dark-color-text);
+                --text-muted-color: var(--dark-color-text-muted);
+                --bg-color: var(--dark-color-background);
+                --surface-color: var(--dark-color-surface);
+                --primary-color: var(--dark-color-primary);
+                --primary-light-color: var(--dark-color-primary-light);
+                --primary-dark-color: var(--dark-color-primary-dark);
+                --secondary-color: var(--dark-color-secondary);
+                --secondary-light-color: var(--dark-color-secondary-light);
+                --border-color: var(--dark-color-border);
+                --shadow-color: var(--dark-color-shadow-raw);
+            }
+        }
+        
+        /* Manuelles Umschalten per data-theme */
+        [data-theme="light"] {
+            color-scheme: light;
+            --text-color: var(--color-text);
+            --text-muted-color: var(--color-text-muted);
+            --bg-color: var(--color-background);
+            --surface-color: var(--color-surface);
+            --primary-color: var(--color-primary);
+            --primary-light-color: var(--color-primary-light);
+            --primary-dark-color: var(--color-primary-dark);
+            --secondary-color: var(--color-secondary);
+            --secondary-light-color: var(--color-secondary-light);
+            --border-color: var(--color-border);
+            --shadow-color: var(--color-shadow-raw);
+        }
+
+        [data-theme="dark"] {
+            color-scheme: dark;
+            --text-color: var(--dark-color-text);
+            --text-muted-color: var(--dark-color-text-muted);
+            --bg-color: var(--dark-color-background);
+            --surface-color: var(--dark-color-surface);
+            --primary-color: var(--dark-color-primary);
+            --primary-light-color: var(--dark-color-primary-light);
+            --primary-dark-color: var(--dark-color-primary-dark);
+            --secondary-color: var(--dark-color-secondary);
+            --secondary-light-color: var(--dark-color-secondary-light);
+            --border-color: var(--dark-color-border);
+            --shadow-color: var(--dark-color-shadow-raw);
+        }
+
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Respektiert reduzierte Bewegung */
+        @media (prefers-reduced-motion: reduce) {
+            html:focus-within {
+                scroll-behavior: auto;
+            }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+            /* Verhindert Layout-Sprünge durch Scrollbar */
+            overflow-y: scroll; 
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            font-size: var(--font-size-base);
+            font-weight: 400;
+            line-height: var(--line-height-base);
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            transition: color var(--transition-base), background-color var(--transition-base);
+            overflow-x: hidden;
+        }
+
+        /* -----------------------------------------------------------------
+        2. GLOBALE HELFER & UTILITIES
+        -----------------------------------------------------------------
+        */
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: var(--container-padding);
+            padding-right: var(--container-padding);
+        }
+
+        /* Sektionen */
+        .section {
+            padding-top: clamp(3rem, 1.83rem + 5.83vw, 6.5rem); /* 48px -> 104px */
+            padding-bottom: clamp(3rem, 1.83rem + 5.83vw, 6.5rem);
+            position: relative;
+        }
+        
+        /* Visuell versteckt, aber für Screenreader zugänglich */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* Skip-Link */
+        .skip-link {
+            position: absolute;
+            top: -100px; /* Außerhalb des Viewports */
+            left: 1rem;
+            z-index: var(--z-skip-link);
+            background-color: var(--primary-color);
+            color: var(--surface-color);
+            padding: 1rem 1.5rem;
+            border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+            font-weight: 600;
+            text-decoration: none;
+            transition: top var(--transition-fast) ease-out;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Fokus-Ringe (Sichtbar nur bei Tastaturnavigation) */
+        :focus-visible {
+            outline: 3px solid var(--primary-color);
+            outline-offset: 3px;
+            border-radius: var(--radius-sm);
+        }
+        /* Ausnahme für Elemente, die ihren eigenen Fokus-Stil haben */
+        .faq-question:focus-visible,
+        .btn:focus-visible,
+        .form-control:focus-visible {
+            outline: none;
+        }
+        
+        .btn:focus-visible {
+             box-shadow: 0 0 0 3px var(--bg-color), 0 0 0 5px var(--primary-color);
+        }
+        
+        .form-control:focus-visible {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px var(--primary-light-color);
+        }
+
+
+        /* Headings */
+        h1, h2, h3, h4 {
+            line-height: var(--line-height-heading);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+        h1 { font-size: var(--font-size-xxl); font-weight: 800; }
+        h2 { font-size: var(--font-size-xl); }
+        h3 { font-size: var(--font-size-lg); }
+        h4 { font-size: var(--font-size-md); }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+        .section-title span {
+            display: block;
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            max-width: 70ch;
+        }
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        a {
+            color: var(--primary-dark-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color var(--transition-fast);
+        }
+        a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        /* -----------------------------------------------------------------
+        3. KOMPONENTEN
+        -----------------------------------------------------------------
+        */
+
+        /* --- 3.1 Buttons --- */
+        .btn {
+            display: inline-block;
+            padding: 0.875rem 1.75rem; /* 14px 28px */
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: var(--font-size-sm);
+            text-decoration: none;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: transform var(--transition-fast), 
+                        background-color var(--transition-fast), 
+                        color var(--transition-fast),
+                        box-shadow var(--transition-fast),
+                        border-color var(--transition-fast);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        /* Magnet-Effekt (Light) */
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--primary-dark-color);
+            border-radius: 50px;
+            transform: scale(0);
+            transition: transform var(--transition-base);
+            z-index: -1;
+        }
+        
+        .btn:hover {
+            text-decoration: none;
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        @media (prefers-reduced-motion: no-preference) {
+            .btn:hover {
+                transition-duration: var(--transition-fast);
+            }
+        }
+        
+        .btn:active {
+             transform: scale(1.02) translateY(-1px);
+             box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--surface-color);
+            box-shadow: 0 4px 14px rgba(var(--color-shadow-raw), 0.15);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark-color);
+            color: var(--surface-color);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-dark-color);
+            border-color: var(--primary-dark-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary-dark-color);
+            color: var(--surface-color);
+            border-color: var(--primary-dark-color);
+        }
+        
+        .btn-secondary-light {
+            background-color: var(--primary-light-color);
+            color: var(--primary-dark-color);
+            border-color: var(--primary-light-color);
+        }
+
+        .btn-secondary-light:hover {
+            background-color: var(--primary-color);
+            color: var(--surface-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: var(--font-size-xs);
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+        
+        /* --- 3.2 Scroll Progress Bar --- */
+        #scroll-progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background-color: transparent;
+            z-index: var(--z-progress-bar);
+        }
+        #scroll-progress-bar-inner {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border-radius: 0 4px 4px 0;
+            transition: width 50ms linear;
+        }
+
+        /* --- 3.3 Header & Navigation --- */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: var(--z-header);
+            padding: 1.25rem 0;
+            transition: background-color var(--transition-fast), box-shadow var(--transition-fast), padding var(--transition-fast);
+        }
+
+        .main-header.is-scrolled {
+            background-color: rgba(var(--bg-color-rgb, 255, 253, 250), 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            padding: 0.75rem 0;
+        }
+        
+        [data-theme="dark"] .main-header.is-scrolled {
+             background-color: rgba(var(--bg-color-rgb, 28, 26, 25), 0.85);
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: var(--font-size-md);
+            font-weight: 800;
+            text-decoration: none;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .logo:hover {
+            color: var(--primary-dark-color);
+            text-decoration: none;
+        }
+        .logo-icon {
+            font-size: 1.5em;
+            line-height: 1;
+        }
+        
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            color: var(--text-color);
+            text-decoration: none;
+            position: relative;
+            padding: 0.5rem 0.25rem;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: all var(--transition-fast);
+            transform: translateX(-50%);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.is-active::after {
+            width: 100%;
+        }
+        
+        .nav-links a.is-active {
+            color: var(--primary-color);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-left: 1.5rem;
+            border-left: 1px solid var(--border-color);
+            margin-left: 0.5rem;
+        }
+        
+        .lang-switcher-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: var(--radius-sm);
+            line-height: 1;
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            color: var(--text-muted-color);
+            transition: background-color var(--transition-fast), color var(--transition-fast);
+        }
+        
+        .lang-switcher-btn:hover {
+            background-color: var(--primary-light-color);
+            color: var(--primary-dark-color);
+        }
+        
+        .lang-switcher-btn.is-active {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .theme-toggle-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: var(--radius-sm);
+            line-height: 1;
+            font-size: 1.25rem;
+            color: var(--text-muted-color);
+            transition: background-color var(--transition-fast), color var(--transition-fast);
+            display: flex;
+            align-items: center;
+        }
+        .theme-toggle-btn .icon-sun { display: none; }
+        .theme-toggle-btn .icon-moon { display: block; }
+        
+        [data-theme="dark"] .theme-toggle-btn .icon-sun { display: block; }
+        [data-theme="dark"] .theme-toggle-btn .icon-moon { display: none; }
+        
+        .theme-toggle-btn:hover {
+            background-color: var(--primary-light-color);
+            color: var(--primary-dark-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.75rem;
+            color: var(--text-color);
+            cursor: pointer;
+            padding: 0.5rem;
+            margin-left: 1rem;
+            z-index: 10;
+        }
+
+        /* --- 3.4 Hero Section --- */
+        .hero {
+            padding-top: 10rem; /* Platz für Header */
+            padding-bottom: 6rem;
+            background-color: var(--primary-light-color);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Noise Overlay */
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.04;
+            background-image: var(--color-noise);
+            z-index: var(--z-hero-bg);
+            pointer-events: none;
+        }
+        
+        /* Parallax Blobs */
+        .hero-blobs {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: var(--z-hero-bg);
+        }
+        
+        .hero-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: float 20s infinite ease-in-out;
+        }
+        
+        .hero-blob-1 {
+            width: 40vw;
+            height: 40vw;
+            min-width: 300px;
+            min-height: 300px;
+            max-width: 500px;
+            max-height: 500px;
+            top: -10%;
+            left: -5%;
+            background: var(--secondary-color);
+            animation-duration: 25s;
+            animation-delay: -5s;
+        }
+        
+        .hero-blob-2 {
+            width: 30vw;
+            height: 30vw;
+            min-width: 200px;
+            min-height: 200px;
+            max-width: 400px;
+            max-height: 400px;
+            bottom: -5%;
+            right: 10%;
+            background: var(--primary-color);
+            animation-duration: 20s;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0) scale(1); }
+            50% { transform: translateY(-30px) translateX(20px) scale(1.1); }
+            100% { transform: translateY(0) translateX(0) scale(1); }
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: var(--z-hero-content);
+            display: grid;
+            grid-template-columns: 1fr;
+            align-items: center;
+            gap: 4rem;
+        }
+        
+        @media (min-width: 992px) {
+            .hero .container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background-color: var(--surface-color);
+            color: var(--primary-dark-color);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: var(--font-size-xs);
+            font-weight: 600;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 1.5rem;
+            animation: float 3s infinite ease-in-out;
+        }
+        
+        .hero-badge.badge-2 {
+            position: absolute;
+            top: 20%;
+            right: -10%;
+            transform: rotate(10deg);
+            animation-delay: -1.5s;
+            animation-duration: 3.5s;
+        }
+
+        .hero-content h1 {
+            margin-bottom: 2rem;
+            background: linear-gradient(65deg, var(--primary-dark-color) 20%, var(--secondary-color) 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-content p {
+            font-size: var(--font-size-md);
+            color: var(--text-muted-color);
+            margin-bottom: 2.5rem;
+        }
+        
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .hero-image-wrapper {
+            position: relative;
+            perspective: 1000px;
+        }
+        
+        .hero-image {
+            width: 100%;
+            aspect-ratio: 1/1;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transform: rotateY(-5deg) rotateX(5deg);
+            transition: transform var(--transition-motion), box-shadow var(--transition-motion);
+        }
+        
+        .hero-image-wrapper:hover .hero-image {
+             transform: rotateY(0deg) rotateX(0deg) scale(1.02);
+             box-shadow: 0 20px 40px -8px rgba(var(--shadow-color, var(--color-shadow-raw)), 0.2);
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- 3.5 Benefits Section --- */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            background-color: var(--surface-color);
+            padding: 2.5rem 2rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: transform var(--transition-motion), box-shadow var(--transition-motion);
+            /* Für Stagger-Animation */
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+        
+        .benefit-card h3 {
+            font-size: var(--font-size-md);
+            color: var(--primary-dark-color);
+        }
+        
+        .benefit-card p {
+            color: var(--text-muted-color);
+            font-size: var(--font-size-sm);
+        }
+
+        /* --- 3.6 About Section --- */
+        .about {
+            background-color: var(--primary-light-color);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            align-items: center;
+            gap: 4rem;
+        }
+        
+        @media (min-width: 992px) {
+            .about-content {
+                grid-template-columns: 3fr 2fr;
+            }
+        }
+        
+        .about-text h2 {
+            margin-bottom: 2rem;
+        }
+        
+        .about-text p {
+            color: var(--text-muted-color);
+        }
+        
+        .about-text strong {
+            color: var(--text-color);
+            font-weight: 600;
+        }
+        
+        .about-list {
+            margin-top: 1.5rem;
+            padding-left: 1.5rem;
+            list-style: none;
+        }
+        
+        .about-list li {
+            position: relative;
+            font-size: var(--font-size-sm);
+            margin-bottom: 0.75rem;
+            color: var(--text-muted-color);
+        }
+        
+        .about-list li::before {
+            content: '✓';
+            position: absolute;
+            left: -1.75rem;
+            top: 0.125rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .about-image {
+            width: 100%;
+            aspect-ratio: 1/1;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        @media (min-width: 992px) {
+            .about-image {
+                order: -1;
+            }
+        }
+
+        /* --- 3.7 Pricing Section --- */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            align-items: stretch; /* Karten gleich hoch */
+        }
+        
+        .pricing-card {
+            background-color: var(--surface-color);
+            padding: 2.5rem;
+            border-radius: var(--radius-md);
+            border: 2px solid var(--border-color);
+            box-shadow: var(--shadow-md);
+            display: flex;
+            flex-direction: column;
+            transition: transform var(--transition-motion), box-shadow var(--transition-motion), border-color var(--transition-motion);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: 1.5rem;
+            right: -40px;
+            background-color: var(--primary-color);
+            color: var(--surface-color);
+            padding: 0.5rem 3rem;
+            font-size: var(--font-size-xs);
+            font-weight: 700;
+            text-transform: uppercase;
+            transform: rotate(45deg);
+            letter-spacing: 0.5px;
+        }
+
+        .pricing-card h3 {
+            font-size: var(--font-size-md);
+            margin-bottom: 0.5rem;
+        }
+        
+        .pricing-card .price-description {
+            font-size: var(--font-size-sm);
+            color: var(--text-muted-color);
+            min-height: 2.5em; /* Platz für Beschreibung */
+        }
+
+        .price {
+            font-size: var(--font-size-xxl);
+            font-weight: 800;
+            color: var(--primary-dark-color);
+            margin: 1.5rem 0 0.5rem;
+        }
+        
+        .price .price-currency {
+            font-size: 0.5em;
+            font-weight: 600;
+            vertical-align: super;
+            margin-right: 0.25em;
+            color: var(--text-muted-color);
+        }
+
+        .price-unit {
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            color: var(--text-muted-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin: 1.5rem 0;
+            text-align: left;
+            flex-grow: 1; /* Schiebt Button nach unten */
+        }
+
+        .pricing-features li {
+            padding: 0.6rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: var(--font-size-sm);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.25em;
+        }
+
+        .pricing-card .btn {
+            margin-top: auto; /* Button am Ende der Karte */
+        }
+        
+        .pricing-card.featured {
+            border-color: var(--primary-color);
+            background-color: var(--primary-light-color);
+        }
+        
+        .pricing-card.featured .btn {
+            background-color: var(--primary-color);
+            color: var(--surface-color);
+        }
+        
+        .pricing-card.featured .btn:hover {
+            background-color: var(--primary-dark-color);
+        }
+
+        .pricing-footer {
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: var(--font-size-sm);
+            color: var(--text-muted-color);
+        }
+
+        /* --- 3.8 Booking (Calendly) Section --- */
+        .booking {
+            background-color: var(--secondary-light-color);
+        }
+        
+        .booking .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        @media (min-width: 992px) {
+            .booking .container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .booking-info h2 {
+            margin-bottom: 1rem;
+        }
+        
+        .booking-info .timezone-info {
+            font-size: var(--font-size-sm);
+            color: var(--text-muted-color);
+            background-color: var(--surface-color);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            margin-top: 2rem;
+            max-width: 450px;
+        }
+        
+        .booking-embed {
+            width: 100%;
+            min-height: 700px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+        }
+        
+        .booking-embed iframe {
+            width: 100%;
+            height: 700px;
+            border: 0;
+        }
+
+        /* --- 3.9 Testimonials Section --- */
+        .testimonials {
+            background-color: var(--primary-light-color);
+            overflow: hidden;
+        }
+
+        .testimonial-carousel {
+            position: relative;
+        }
+        
+        .testimonial-track {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 1.5rem;
+            padding-bottom: 2rem; /* Platz für Scrollbar */
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        
+        .testimonial-track::-webkit-scrollbar {
+            display: none; /* Safari and Chrome */
+        }
+        
+        .testimonial-card {
+            flex: 0 0 100%;
+            scroll-snap-align: center;
+            background-color: var(--surface-color);
+            padding: 2.5rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-md);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        @media (min-width: 768px) {
+            .testimonial-card {
+                flex-basis: calc(50% - 0.75rem);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .testimonial-card {
+                flex-basis: calc(33.333% - 1rem);
+            }
+        }
+
+        .testimonial-stars {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            font-size: var(--font-size-base);
+            font-style: italic;
+            color: var(--text-muted-color);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: auto;
+        }
+        
+        .testimonial-author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: var(--primary-color);
+        }
+        
+        .testimonial-author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .testimonial-author-info strong {
+            display: block;
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        
+        .testimonial-author-info span {
+            font-size: var(--font-size-xs);
+            color: var(--text-muted-color);
+        }
+
+        .testimonial-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .testimonial-control {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+            transition: var(--transition-base);
+        }
+        
+        .testimonial-control:hover {
+            background-color: var(--primary-light-color);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .testimonial-control:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background-color: var(--border-color);
+        }
+
+        /* --- 3.10 FAQ Section --- */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .faq-item {
+            background-color: var(--surface-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: var(--font-size-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+            color: var(--text-color);
+            transition: background-color var(--transition-fast);
+        }
+        
+        .faq-question:hover {
+            background-color: var(--primary-light-color);
+        }
+        
+        .faq-question:focus-visible {
+            background-color: var(--primary-light-color);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px var(--primary-light-color) inset;
+            outline: none;
+        }
+
+        .faq-icon {
+            font-size: 1.25em;
+            font-weight: 400;
+            color: var(--primary-color);
+            transition: transform var(--transition-base);
+        }
+        
+        .faq-question[aria-expanded="true"] .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows var(--transition-base);
+        }
+        
+        .faq-answer[aria-hidden="false"] {
+            grid-template-rows: 1fr;
+        }
+        
+        .faq-answer-content {
+            overflow: hidden;
+        }
+        
+        .faq-answer-content p {
+            padding: 0 1.5rem 1.5rem;
+            font-size: var(--font-size-sm);
+            color: var(--text-muted-color);
+        }
+
+        /* --- 3.11 Video Section --- */
+        .video {
+            background-color: var(--secondary-light-color);
+        }
+        
+        .video-container {
+            margin-top: 3rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            border: 1px solid var(--border-color);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* --- 3.12 Contact Section --- */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+        
+        @media (min-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .contact-info h2 {
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            background-color: var(--surface-color);
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            margin-bottom: 1.5rem;
+            transition: transform var(--transition-motion), box-shadow var(--transition-motion);
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-icon {
+            font-size: 1.75rem;
+            color: var(--primary-color);
+            margin-top: 0.25rem;
+            line-height: 1;
+        }
+        
+        .contact-item h3 {
+            font-size: var(--font-size-base);
+            margin-bottom: 0.25rem;
+        }
+        
+        .contact-item p {
+            font-size: var(--font-size-sm);
+            color: var(--text-muted-color);
+            margin-bottom: 0.75rem;
+        }
+        
+        .contact-item a {
+            font-size: var(--font-size-sm);
+        }
+        
+        .contact-item .btn {
+            margin-top: 0.5rem;
+        }
+        
+        /* Copy to Clipboard Button */
+        .copy-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.25rem 0.5rem;
+            font-size: var(--font-size-xs);
+            color: var(--text-muted-color);
+            border-radius: var(--radius-sm);
+            margin-left: 0.5rem;
+        }
+        .copy-btn:hover {
+            background-color: var(--primary-light-color);
+            color: var(--primary-dark-color);
+        }
+        
+        /* Kontaktformular */
+        .contact-form {
+            background-color: var(--surface-color);
+            padding: 2.5rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .contact-form h3 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: var(--font-size-sm);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-family: inherit;
+            font-size: var(--font-size-sm);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px var(--primary-light-color);
+        }
+
+        .form-control::placeholder {
+            color: var(--text-muted-color);
+            opacity: 0.8;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        /* Formspree Erfolgs-/Fehlermeldung */
+        .form-status {
+            text-align: center;
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            margin-top: 1.5rem;
+            font-size: var(--font-size-sm);
+            display: none;
+        }
+        .form-status.is-success {
+            background-color: var(--secondary-light-color);
+            color: var(--secondary-color);
+            display: block;
+        }
+        .form-status.is-error {
+            background-color: #FFF1F2; /* Annahme für Fehlerfarbe */
+            color: #DC2626;
+            display: block;
+        }
+        [data-theme="dark"] .form-status.is-success {
+            background-color: var(--secondary-light-color);
+            color: var(--secondary-color);
+        }
+        [data-theme="dark"] .form-status.is-error {
+            background-color: #451a1d;
+            color: #F87171;
+        }
+
+
+        /* --- 3.13 Footer --- */
+        .main-footer {
+            background-color: var(--surface-color);
+            border-top: 1px solid var(--border-color);
+            padding: 3rem var(--container-padding) 2rem;
+            color: var(--text-muted-color);
+            font-size: var(--font-size-sm);
+        }
+        
+        .main-footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-size: var(--font-size-lg);
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-tagline {
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: var(--text-muted-color);
+            font-size: 1.5rem;
+            line-height: 1;
+            transition: color var(--transition-fast), transform var(--transition-fast);
+        }
+        
+        .social-links a:hover {
+            color: var(--primary-color);
+            transform: scale(1.1);
+            text-decoration: none;
+        }
+        
+        .footer-legal-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-legal-links a {
+            font-size: var(--font-size-xs);
+            color: var(--text-muted-color);
+        }
+        
+        .footer-legal-links a:hover {
+            color: var(--text-color);
+        }
+        
+        .footer-copyright {
+            font-size: var(--font-size-xs);
+        }
+
+        /* --- 3.14 Sticky CTA & WhatsApp Button --- */
+        .sticky-cta-bar {
+            position: fixed;
+            bottom: -100%; /* Startet versteckt */
+            left: 0;
+            width: 100%;
+            background-color: var(--surface-color);
+            padding: 1rem var(--container-padding);
+            box-shadow: 0 -4px 12px rgba(var(--shadow-color, var(--color-shadow-raw)), 0.1);
+            z-index: var(--z-sticky-cta);
+            transition: bottom var(--transition-base);
+        }
+        
+        .sticky-cta-bar.is-visible {
+            bottom: 0;
+        }
+
+        .whatsapp-fab {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: var(--z-sticky-cta);
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            text-decoration: none;
+            box-shadow: var(--shadow-lg);
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+        
+        .whatsapp-fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px #128C7E60;
+            text-decoration: none;
+            color: white;
+        }
+        
+        /* Desktop Sticky CTA */
+        @media (min-width: 992px) {
+            .sticky-cta-bar {
+                display: none; /* Mobile-Version ausblenden */
+            }
+            
+            .sticky-cta-desktop {
+                position: fixed;
+                bottom: -100%; /* Startet versteckt */
+                right: 1.5rem;
+                width: 350px;
+                background-color: var(--surface-color);
+                border-radius: var(--radius-md);
+                padding: 1.5rem;
+                box-shadow: var(--shadow-lg);
+                z-index: var(--z-sticky-cta);
+                border: 1px solid var(--border-color);
+                transition: bottom var(--transition-base);
+            }
+            
+            .sticky-cta-desktop.is-visible {
+                bottom: 1.5rem;
+            }
+            
+            .sticky-cta-desktop h4 {
+                font-size: var(--font-size-base);
+                margin-bottom: 0.5rem;
+            }
+            .sticky-cta-desktop p {
+                font-size: var(--font-size-sm);
+                color: var(--text-muted-color);
+                margin-bottom: 1rem;
+            }
+            
+            .whatsapp-fab {
+                bottom: auto;
+                top: 1.5rem;
+                transform: translateY(-150%);
+                transition: transform var(--transition-base);
+            }
+            
+            .whatsapp-fab.is-visible {
+                 transform: translateY(0);
+            }
+            
+            /* Wenn Desktop-Sticky-CTA sichtbar ist, verstecke WhatsApp FAB */
+            .sticky-cta-desktop.is-visible + .whatsapp-fab {
+                transform: translateY(-150%);
+            }
+        }
+        
+        @media (max-width: 991.98px) {
+            .sticky-cta-desktop {
+                display: none;
+            }
+            /* WhatsApp FAB nach oben schieben, wenn Mobile-Sticky-Bar da ist */
+            .sticky-cta-bar.is-visible + .whatsapp-fab {
+                bottom: 6.5rem; /* Höhe der Bar + 1.5rem */
+            }
+        }
+
+        /* --- 3.15 Toast Notification --- */
+        .toast-notification {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translate(-50%, 150%);
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            z-index: var(--z-toast);
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: transform var(--transition-base);
+            opacity: 0;
+        }
+        
+        .toast-notification.is-visible {
+            transform: translate(-50%, 0);
+            opacity: 1;
+        }
+        
+        .toast-icon {
+            color: #25D366; /* Grün für Erfolg */
+            font-size: 1.25em;
+        }
+
+
+        /* -----------------------------------------------------------------
+        4. RESPONSIVE ANPASSUNGEN (Mobile Nav)
+        -----------------------------------------------------------------
+        */
+        @media (max-width: 991.98px) {
+            .main-header {
+                padding: 1rem 0;
+            }
+            .main-header.is-scrolled {
+                padding: 0.75rem 0;
+            }
+
+            .main-nav {
+                /* Verstecke Nav-Aktionen (Theme/Lang) im mobilen Menü */
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: var(--bg-color);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 1.5rem;
+                
+                opacity: 0;
+                pointer-events: none;
+                transform: translateX(100%);
+                transition: transform var(--transition-base), opacity var(--transition-base);
+            }
+            
+            .main-nav.is-open {
+                opacity: 1;
+                pointer-events: auto;
+                transform: translateX(0);
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .nav-links a {
+                font-size: var(--font-size-lg);
+                font-weight: 700;
+            }
+            
+            .nav-actions {
+                border-left: none;
+                margin-left: 0;
+                padding-left: 0;
+                margin-top: 2rem;
+                padding-top: 2rem;
+                border-top: 1px solid var(--border-color);
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .lang-switcher {
+                display: flex;
+                gap: 1rem;
+            }
+            
+            .theme-toggle-btn {
+                font-size: 1.5rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            /* Hero Anpassungen */
+            .hero {
+                padding-top: 8rem;
+            }
+            .hero-content {
+                text-align: center;
+            }
+            .hero-actions {
+                justify-content: center;
+            }
+            .hero-badge.badge-2 {
+                display: none; /* Zu viel Unruhe auf Mobilgeräten */
+            }
+            .hero-image {
+                transform: none;
+                margin-top: 2rem;
+            }
+            .hero-image-wrapper:hover .hero-image {
+                 transform: none;
+            }
+
+            /* Testimonials */
+            .testimonial-track {
+                padding-left: var(--container-padding);
+                padding-right: var(--container-padding);
+                /* Sorgt dafür, dass die erste/letzte Karte am Rand einrastet */
+                scroll-padding: 0 var(--container-padding);
+            }
+            .testimonial-card {
+                flex-basis: 85%;
+            }
+        }
+        
+        /* -----------------------------------------------------------------
+        5. ANIMATIONEN (Scroll Reveal)
+        -----------------------------------------------------------------
+        */
+        .reveal-fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 600ms var(--transition-base), transform 600ms var(--transition-base);
+        }
+        
+        .reveal-fade-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Skip-Link -->
+    <a href="#main-content" class="skip-link" data-i18n="skipLink">Zum Hauptinhalt springen</a>
+
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Seitenfortschritt">
+        <div id="scroll-progress-bar-inner"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header" id="main-header">
+        <div class="container">
+            <a href="#hero" class="logo">
+                <span class="logo-icon" aria-hidden="true">🗺️</span>
+                Ana's Spanish Map
+            </a>
+
+            <nav class="main-nav" id="main-nav" aria-label="Hauptnavigation">
+                <ul class="nav-links">
+                    <li><a href="#about" class="nav-link" data-i18n="nav.about">Über mich</a></li>
+                    <li><a href="#pricing" class="nav-link" data-i18n="nav.pricing">Preise</a></li>
+                    <li><a href="#testimonials" class="nav-link" data-i18n="nav.testimonials">Bewertungen</a></li>
+                    <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Kontakt</a></li>
+                </ul>
+                
+                <div class="nav-actions">
+                    <!-- Sprachwechsler -->
+                    <div class="lang-switcher" role="group" aria-label="Sprache auswählen">
+                        <button class="lang-switcher-btn" data-lang="de" title="Deutsch" aria-pressed="true">DE</button>
+                        <button class="lang-switcher-btn" data-lang="en" title="English" aria-pressed="false">EN</button>
+                        <button class="lang-switcher-btn" data-lang="es" title="Español" aria-pressed="false">ES</button>
+                    </div>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle dark mode">
+                        <span class="icon-moon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                        </span>
+                        <span class="icon-sun" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                        </span>
+                    </button>
+                </div>
+            </nav>
+
+            <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-controls="main-nav" aria-expanded="false">
+                <span class="sr-only" data-i18n="nav.toggle">Navigation umschalten</span>
+                <span class="icon-open" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </span>
+                <span class="icon-close" aria-hidden="true" style="display: none;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hauptinhalt -->
+    <main id="main-content">
+
+        <!-- 1. Hero Section -->
+        <section class="hero" id="hero">
+            <div class="hero-blobs" aria-hidden="true">
+                <div class="hero-blob hero-blob-1"></div>
+                <div class="hero-blob hero-blob-2"></div>
+            </div>
+            <div class="container">
+                <div class="hero-content reveal-fade-up">
+                    <div class="hero-badge" data-i18n="hero.badge1">Kostenlose Probestunde</div>
+                    
+                    <h1 data-i18n="hero.headline">Spanisch, das du wirklich sprichst.</h1>
+                    <p data-i18n="hero.subheadline">Konversation im echten Kontext – maßgeschneidert für deine Ziele (A1–B2) und mit Fokus auf die Praxis.</p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn btn-primary" data-analytics-event="cta_click_hero" data-i18n="hero.ctaPrimary">Probestunde buchen</a>
+                        <a href="#pricing" class="btn btn-secondary" data-i18n="hero.ctaSecondary">Preise ansehen</a>
+                    </div>
+                </div>
+                
+                <div class="hero-image-wrapper reveal-fade-up">
+                    <div class="hero-image">
+                        <img 
+                            src="Ana 1.jpg" 
+                            alt="Ana, eine freundliche Spanischlehrerin, lächelt in die Kamera" 
+                            width="600" 
+                            height="600"
+                            fetchpriority="high"
+                            decoding="async">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Benefits Section -->
+        <section class="section benefits" id="benefits">
+            <div class="container">
+                <div class="section-title reveal-fade-up">
+                    <span data-i18n="benefits.tagline">Der Unterschied</span>
+                    <h2 data-i18n="benefits.headline">Warum mit mir lernen?</h2>
+                </div>
+                <div class="benefits-grid">
+                    <div class="benefit-card reveal-fade-up" style="--delay: 0ms">
+                        <div class="benefit-icon" aria-hidden="true">💬</div>
+                        <h3 data-i18n="benefits.card1.title">Natürlich sprechen</h3>
+                        <p data-i18n="benefits.card1.text">Wir simulieren echte Situationen und nutzen Vokabular, das du sofort anwenden kannst.</p>
+                    </div>
+                    <div class="benefit-card reveal-fade-up" style="--delay: 100ms">
+                        <div class="benefit-icon" aria-hidden="true">🎯</div>
+                        <h3 data-i18n="benefits.card2.title">Maßgeschneidert</h3>
+                        <p data-i18n="benefits.card2.text">Dein Ziel, dein Level und dein Lernstil bestimmen den Inhalt jeder einzelnen Stunde.</p>
+                    </div>
+                    <div class="benefit-card reveal-fade-up" style="--delay: 200ms">
+                        <div class="benefit-icon" aria-hidden="true">📚</div>
+                        <h3 data-i18n="benefits.card3.title">Grammatik integriert</h3>
+                        <p data-i18n="benefits.card3.text">Grammatik wird im Kontext erklärt, nicht als trockene Regel. So bleibt sie hängen.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. About Section -->
+        <section class="section about" id="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text reveal-fade-up">
+                        <span class="section-title" style="text-align: left; margin-bottom: 1.5rem;">
+                            <span data-i18n="about.tagline">¡Hola!</span>
+                            <h2 data-i18n="about.headline">Ich bin Ana, deine Spanischlehrerin</h2>
+                        </span>
+                        <p data-i18n="about.p1">
+                            Als zertifizierte Spanischlehrerin (DELE) mit über 6 Jahren Erfahrung habe ich eine Mission: Dir zu helfen, Spanisch mit Selbstvertrauen und Freude zu sprechen.
+                        </p>
+                        <p data-i18n="about.p2">
+                            Mein Unterricht ist dynamisch, persönlich und immer auf Konversation ausgerichtet. Wir konzentrieren uns auf das, was du wirklich brauchst – ob für den Urlaub, den Beruf oder die DELE-Prüfung.
+                        </p>
+                        <ul class="about-list">
+                            <li data-i18n="about.fact1"><strong>6+ Jahre</strong> Unterrichtserfahrung</li>
+                            <li data-i18n="about.fact2"><strong>DELE-Zertifiziert</strong> (A1–B2 Vorbereitung)</li>
+                            <li data-i18n="about.fact3">Fokus auf <strong>Konversation & Praxis</strong></li>
+                        </ul>
+                    </div>
+                    <div class="about-image reveal-fade-up" style="--delay: 100ms">
+                         <img 
+                            src="Ana 2.jpg" 
+                            alt="Ana in einer Unterrichtssituation, sie erklärt etwas mit einem Lächeln" 
+                            width="500" 
+                            height="500"
+                            loading="lazy"
+                            decoding="async">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Pricing Section -->
+        <section class="section pricing" id="pricing">
+            <div class="container">
+                <div class="section-title reveal-fade-up">
+                    <span data-i18n="pricing.tagline">Flexibel & Fair</span>
+                    <h2 data-i18n="pricing.headline">Preise & Pakete</h2>
+                </div>
+                <div class="pricing-grid">
+                    <!-- Probestunde -->
+                    <div class="pricing-card reveal-fade-up">
+                        <h3 data-i18n="pricing.trial.title">Probestunde</h3>
+                        <p class="price-description" data-i18n="pricing.trial.description">Lerne mich kennen</p>
+                        <div class="price">
+                            <span class="price-currency" data-i18n="pricing.currency.symbol">$</span><span data-i18n="pricing.trial.price">0</span>
+                        </div>
+                        <div class="price-unit" data-i18n="pricing.trial.duration">30 Minuten</div>
+                        <ul class="pricing-features">
+                            <li data-i18n="pricing.trial.feat1">Level-Einschätzung</li>
+                            <li data-i18n="pricing.trial.feat2">Ziele besprechen</li>
+                            <li data-i18n="pricing.trial.feat3">Unverbindlich</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-secondary" data-analytics-event="pricing_cta_trial" data-i18n="pricing.ctaBook">Jetzt buchen</a>
+                    </div>
+                    
+                    <!-- Einzelstunde -->
+                    <div class="pricing-card reveal-fade-up" style="--delay: 100ms">
+                        <h3 data-i18n="pricing.single.title">Einzelstunde</h3>
+                        <p class="price-description" data-i18n="pricing.single.description">Volle Flexibilität</p>
+                        <div class="price">
+                            <span class="price-currency" data-i18n="pricing.currency.symbol">$</span><span data-i18n="pricing.single.price">18</span>
+                        </div>
+                        <div class="price-unit" data-i18n="pricing.single.duration">50 Minuten</div>
+                        <ul class="pricing-features">
+                            <li data-i18n="pricing.single.feat1">Individuelle Materialien</li>
+                            <li data-i18n="pricing.single.feat2">Flexibel buchbar</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-secondary" data-analytics-event="pricing_cta_single" data-i18n="pricing.ctaBook">Jetzt buchen</a>
+                    </div>
+
+                    <!-- 10er Paket (Featured) -->
+                    <div class="pricing-card featured reveal-fade-up" style="--delay: 200ms">
+                        <div class="pricing-badge" data-i18n="pricing.popularBadge">Beliebt</div>
+                        <h3 data-i18n="pricing.pack10.title">10er Paket</h3>
+                        <p class="price-description" data-i18n="pricing.pack10.description">Konstant dranbleiben</p>
+                        <div class="price">
+                            <span class="price-currency" data-i18n="pricing.currency.symbol">$</span><span data-i18n="pricing.pack10.price">180</span>
+                        </div>
+                        <div class="price-unit" data-i18n="pricing.pack10.duration">10 x 50 Minuten</div>
+                        <ul class="pricing-features">
+                            <li data-i18n="pricing.pack10.feat1">Preis pro Stunde: $18</li>
+                            <li data-i18n="pricing.pack10.feat2">6 Monate gültig</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary" data-analytics-event="pricing_cta_pack10" data-i18n="pricing.ctaBook">Jetzt buchen</a>
+                    </div>
+
+                    <!-- 20er Paket (Best Value) -->
+                    <div class="pricing-card reveal-fade-up" style="--delay: 300ms">
+                        <h3 data-i18n="pricing.pack20.title">20er Paket</h3>
+                        <p class="price-description" data-i18n="pricing.pack20.description">Spare $54 + 3 Bonusstunden!</p>
+                        <div class="price">
+                            <span class="price-currency" data-i18n="pricing.currency.symbol">$</span><span data-i18n="pricing.pack20.price">360</span>
+                        </div>
+                        <div class="price-unit" data-i18n="pricing.pack20.duration">23 Stunden (20 + 3 gratis)</div>
+                        <ul class="pricing-features">
+                            <li data-i18n="pricing.pack20.feat1">Effektiv nur $15.65 / Stunde</li>
+                            <li data-i18n="pricing.pack20.feat2">12 Monate gültig</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-secondary" data-analytics-event="pricing_cta_pack20" data-i18n="pricing.ctaBook">Jetzt buchen</a>
+                    </div>
+                </div>
+                <div class="pricing-footer reveal-fade-up">
+                    <p>
+                        <span data-i18n="pricing.footer.payment">💳 Zahlung via PayPal oder Banküberweisung (EUR).</span><br>
+                        <span data-i18n="pricing.footer.cancellation">📅 Kostenlose Stornierung bis 24 Stunden vor dem Termin.</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 5. Booking (Calendly) Section -->
+        <!-- KALENDER SEKTION ENTFERNT -->
+
+        <!-- 6. Testimonials Section -->
+        <section class="section testimonials" id="testimonials">
+            <div class="container">
+                <div class="section-title reveal-fade-up">
+                    <span data-i18n="testimonials.tagline">¡Muchas gracias!</span>
+                    <h2 data-i18n="testimonials.headline">Was meine Schüler sagen</h2>
+                </div>
+                
+                <div class="testimonial-carousel reveal-fade-up">
+                    <div class="testimonial-track" id="testimonial-track">
+                        
+                        <!-- Testimonial 1 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars" aria-label="5 von 5 Sternen">★★★★★</div>
+                            <p class="testimonial-text" data-i18n="testimonials.t1.text">
+                                "Ich habe selten jemanden so charismatisch und freundlich erlebt. Ana unterrichtet mit Geduld, Humor und Herz. Jede Stunde ist ein Geschenk."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-author-avatar">
+                                    <img src="https://placehold.co/100x100/A6D8E7/3A3633?text=L" alt="" loading="lazy">
+                                </div>
+                                <div class="testimonial-author-info">
+                                    <strong data-i18n="testimonials.t1.author">Leon</strong>
+                                    <span data-i18n="testimonials.t1.meta">aus Deutschland</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 2 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars" aria-label="5 von 5 Sternen">★★★★★</div>
+                            <p class="testimonial-text" data-i18n="testimonials.t2.text">
+                                "Ana spricht klar und ermutigt. Abwechslungsreiche Lektionen (Videos, Übungen, Gespräche, Hausaufgaben) und sehr sympathisch."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-author-avatar">
+                                    <img src="https://placehold.co/100x100/C96F53/F2E8DC?text=J" alt="" loading="lazy">
+                                </div>
+                                <div class="testimonial-author-info">
+                                    <strong data-i18n="testimonials.t2.author">Jon</strong>
+                                    <span data-i18n="testimonials.t2.meta">aus den USA</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 3 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars" aria-label="5 von 5 Sternen">★★★★★</div>
+                            <p class="testimonial-text" data-i18n="testimonials.t3.text">
+                                "Wunderbare Tutorin, stets vorbereitet und professionell. Personalisiert mein Lernen, gibt Tipps fürs Selbststudium; Sprechen und Grammatik stark verbessert."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-author-avatar">
+                                    <img src="https://placehold.co/100x100/A6D8E7/3A3633?text=K" alt="" loading="lazy">
+                                </div>
+                                <div class="testimonial-author-info">
+                                    <strong data-i18n="testimonials.t3.author">Katelyn</strong>
+                                    <span data-i18n="testimonials.t3.meta">aus den USA</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 4 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars" aria-label="5 von 5 Sternen">★★★★★</div>
+                            <p class="testimonial-text" data-i18n="testimonials.t4.text">
+                                "Sehr froh, Ana gefunden zu haben. Gründlich und extrem geduldig, auch bei wiederholten Fehlern. Mit jeder Stunde lerne ich mehr."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-author-avatar">
+                                    <img src="https://placehold.co/100x100/C96F53/F2E8DC?text=J" alt="" loading="lazy">
+                                </div>
+                                <div class="testimonial-author-info">
+                                    <strong data-i18n="testimonials.t4.author">Jake</strong>
+                                    <span data-i18n="testimonials.t4.meta">aus Großbritannien</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <div class="testimonial-controls" aria-label="Testimonial-Navigation">
+                        <button class="testimonial-control" id="testimonial-prev" aria-label="Vorheriges Testimonial">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </button>
+                        <button class="testimonial-control" id="testimonial-next" aria-label="Nächstes Testimonial">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        
+        <!-- 7. FAQ Section -->
+        <section class="section faq" id="faq">
+            <div class="container">
+                <div class="section-title reveal-fade-up">
+                    <span data-i18n="faq.tagline">Antworten</span>
+                    <h2 data-i18n="faq.headline">Häufige Fragen</h2>
+                </div>
+                
+                <div class="faq-container reveal-fade-up">
+                    <!-- FAQ 1 -->
+                    <div class="faq-item">
+                        <button class="faq-question" id="faq-q1" aria-controls="faq-a1" aria-expanded="false">
+                            <span data-i18n="faq.q1.text">Welche Zeiten bietest du an?</span>
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer" id="faq-a1" role="region" aria-labelledby="faq-q1" aria-hidden="true">
+                            <div class="faq-answer-content">
+                                <p data-i18n="faq.a1.text">
+                                    Ich unterrichte Montag bis Freitag, morgens, nachmittags und abends in GMT-5 (Peru Zeit). Der Buchungskalender zeigt dir automatisch alle verfügbaren Zeiten in deiner lokalen Zeitzone an.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- FAQ 2 -->
+                    <div class="faq-item">
+                        <button class="faq-question" id="faq-q2" aria-controls="faq-a2" aria-expanded="false">
+                            <span data-i18n="faq.q2.text">Für welches Level bietest du Unterricht an?</span>
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer" id="faq-a2" role="region" aria-labelledby="faq-q2" aria-hidden="true">
+                            <div class="faq-answer-content">
+                                <p data-i18n="faq.a2.text">
+                                    Ich unterrichte alle Levels von A1 (Anfänger) bis B2 (fortgeschrittene Mittelstufe). Auch DELE-Vorbereitung für diese Stufen ist möglich!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- FAQ 3 -->
+                    <div class="faq-item">
+                        <button class="faq-question" id="faq-q3" aria-controls="faq-a3" aria-expanded="false">
+                            <span data-i18n="faq.q3.text">Welche Technik brauche ich?</span>
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer" id="faq-a3" role="region" aria-labelledby="faq-q3" aria-hidden="true">
+                            <div class="faq-answer-content">
+                                <p data-i18n="faq.a3.text">
+                                    Du brauchst nur einen Computer, Tablet oder Smartphone mit einer stabilen Internetverbindung. Wir nutzen gängige Video-Plattformen (Zoom, Google Meet, Skype). Alle Materialien teile ich digital mit dir.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- FAQ 4 -->
+                    <div class="faq-item">
+                        <button class="faq-question" id="faq-q4" aria-controls="faq-a4" aria-expanded="false">
+                            <span data-i18n="faq.q4.text">Wie läuft die Stornierung ab?</span>
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer" id="faq-a4" role="region" aria-labelledby="faq-q4" aria-hidden="true">
+                            <div class="faq-answer-content">
+                                <p data-i18n="faq.a4.text">
+                                    Du kannst bis 24 Stunden vor dem Termin kostenlos umbuchen oder absagen. Bei späterer Absage oder Nichterscheinen wird die Stunde voll berechnet, da ich diese Zeit für dich reserviert habe.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 8. Video Section -->
+        <section class="section video" id="video">
+            <div class="container">
+                <div class="section-title reveal-fade-up">
+                    <span data-i18n="video.tagline">Meine Methode</span>
+                    <h2 data-i18n="video.headline">Schau mir beim Unterrichten zu</h2>
+                </div>
+                <div class="video-container reveal-fade-up">
+                    <!-- YouTube Nocookie Embed -->
+                    <iframe 
+                        src="https://www.youtube-nocookie.com/embed/dcZf2LLwPew" 
+                        title="YouTube video player" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 9. Contact Section -->
+        <section class="section contact" id="contact">
+            <div class="container">
+                <div class="contact-grid">
+                    <!-- Linke Seite: Kontaktinfos -->
+                    <div class="contact-info reveal-fade-up">
+                        <span class="section-title" style="text-align: left; margin-bottom: 1.5rem;">
+                            <span data-i18n="contact.tagline">Noch Fragen?</span>
+                            <h2 data-i18n="contact.headline">Kontaktiere mich</h2>
+                        </span>
+                        <p data-i18n="contact.p1">
+                            Wenn du Fragen hast oder unsicher bist, welches Paket das richtige für dich ist, schreib mir einfach. Ich antworte dir so schnell wie möglich!
+                        </p>
+                        
+                        <!-- E-Mail -->
+                        <div class="contact-item">
+                            <div class="contact-icon" aria-hidden="true">📧</div>
+                            <div>
+                                <h3 data-i18n="contact.email.title">Email</h3>
+                                <p>
+                                    <a href="mailto:anaarellano548@gmail.com">anaarellano548@gmail.com</a>
+                                    <button class="copy-btn" data-copy="anaarellano548@gmail.com" data-i18n="contact.copy" aria-label="E-Mail-Adresse kopieren">
+                                        Kopieren
+                                    </button>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- WhatsApp -->
+                        <div class="contact-item">
+                            <div class="contact-icon" aria-hidden="true">💬</div>
+                            <div>
+                                <h3 data-i18n="contact.whatsapp.title">WhatsApp</h3>
+                                <p data-i18n="contact.whatsapp.text">Schreib mir direkt für eine schnelle Antwort.</p>
+                                <a href="https://wa.me/+51987654321" target="_blank" rel="noopener noreferrer" class="btn btn-secondary-light btn-sm" data-analytics-event="whatsapp_click_contact" data-i18n="contact.whatsapp.cta">
+                                    WhatsApp öffnen
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Instagram -->
+                        <div class="contact-item">
+                            <div class="contact-icon" aria-hidden="true">📱</div>
+                            <div>
+                                <h3 data-i18n="contact.instagram.title">Instagram</h3>
+                                <p data-i18n="contact.instagram.text">Tägliche Lerntipps und Einblicke.</p>
+                                <a href="https://instagram.com/AnasSpanishMap" target="_blank" rel="noopener noreferrer">@AnasSpanishMap</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Rechte Seite: Formular (via Formspree) -->
+                    <div class="contact-form reveal-fade-up" style="--delay: 100ms">
+                        <h3 data-i18n="contact.form.title">... oder schick mir eine Nachricht</h3>
+                        <form id="contact-form" action="https://formspree.io/f/manpjnnz" method="POST">
+                            <div class="form-group">
+                                <label for="name" data-i18n="contact.form.name.label">Name</label>
+                                <input type="text" id="name" name="name" class="form-control" required 
+                                       data-i18n-placeholder="contact.form.name.placeholder" 
+                                       placeholder="Dein Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email" data-i18n="contact.form.email.label">E-Mail</label>
+                                <input type="email" id="email" name="email" class="form-control" required
+                                       data-i18n-placeholder="contact.form.email.placeholder"
+                                       placeholder="deine@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="level" data-i18n="contact.form.level.label">Dein Spanisch-Level (ca.)</label>
+                                <select id="level" name="level" class="form-control" required>
+                                    <option value="" disabled selected data-i18n="contact.form.level.optionDefault">Wähle dein Level...</option>
+                                    <option value="A1" data-i18n="contact.form.level.optionA1">A1 - Anfänger</option>
+                                    <option value="A2" data-i18n="contact.form.level.optionA2">A2 - Grundkenntnisse</option>
+                                    <option value="B1" data-i18n="contact.form.level.optionB1">B1 - Mittelstufe</option>
+                                    <option value="B2" data-i18n="contact.form.level.optionB2">B2 - Fortgeschr. Mittelstufe</option>
+                                    <option value="Unsure" data-i18n="contact.form.level.optionUnsure">Ich bin unsicher</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message" data-i18n="contact.form.message.label">Deine Nachricht</label>
+                                <textarea id="message" name="message" class="form-control" rows="4" 
+                                          data-i18n-placeholder="contact.form.message.placeholder"
+                                          placeholder="Erzähl mir von deinen Zielen oder stell deine Frage..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block" data-analytics-event="form_submit_contact" data-i18n="contact.form.submit">
+                                Nachricht senden
+                            </button>
+                            <p class="form-status" id="form-status"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <a href="#hero" class="footer-logo">Ana's Spanish Map</a>
+            <p class="footer-tagline" data-i18n="footer.tagline">Deine Reise zu fließendem Spanisch.</p>
+            <div class="social-links" aria-label="Soziale Medien">
+                <a href="https://instagram.com/AnasSpanishMap" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </a>
+                <a href="https://youtube.com/@AnasSpanishMap" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 11.75a29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                </a>
+                <a href="mailto:anaarellano548@gmail.com" aria-label="E-Mail">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22 6 12 13 2 6"></polyline></svg>
+                </a>
+            </div>
+            <div class="footer-legal-links">
+                <!-- WICHTIG: Diese Links müssen auf echte Seiten verweisen -->
+                <a href="/impressum" data-i18n="footer.imprint">Impressum</a>
+                <a href="/datenschutz" data-i18n="footer.privacy">Datenschutzerklärung</a>
+                <a href="/agb" data-i18n="footer.terms">AGB & Storno-Policy</a>
+            </div>
+            <p class="footer-copyright">
+                &copy; <span id="current-year">2025</span> Ana's Spanish Map. 
+                <span data-i18n="footer.rights">Alle Rechte vorbehalten.</span>
+            </p>
+        </div>
+    </footer>
+    
+    <!-- Sticky CTA (Mobile) -->
+    <div class="sticky-cta-bar" id="sticky-cta-mobile">
+        <a href="#contact" class="btn btn-primary btn-block" data-analytics-event="cta_click_sticky_mobile" data-i18n="stickyCta.cta">
+            Kostenlose Probestunde buchen
+        </a>
+    </div>
+    
+    <!-- Sticky CTA (Desktop) -->
+    <div class="sticky-cta-desktop" id="sticky-cta-desktop">
+        <h4 data-i18n="stickyCta.headline">Bereit zu starten?</h4>
+        <p data-i18n="stickyCta.text">Buche jetzt deine kostenlose 30-minütige Probestunde.</p>
+        <a href="#contact" class="btn btn-primary btn-block" data-analytics-event="cta_click_sticky_desktop" data-i18n="stickyCta.cta">
+            Termin finden
+        </a>
+    </div>
+
+    <!-- WhatsApp Floating Action Button -->
+    <a href="https://wa.me/+51987654321?text=Hola%20Ana%2C%20ich%20interessiere%20mich%20f%C3%BCr%20deinen%20Spanischunterricht."
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="whatsapp-fab" 
+       id="whatsapp-fab"
+       aria-label="Chat auf WhatsApp"
+       data-i18n-label="whatsapp.label"
+       data-i18n-link="whatsapp.link"
+       data-analytics-event="whatsapp_click_fab">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.0-5.525 4.479-10 10.001-10 2.729 0 5.291 1.056 7.279 2.94S24 9.271 24 12c0 5.525-4.479 10-10.001 10-2.097 0-4.142-.547-5.946-1.587L.057 24zM12 21.8c5.405 0 9.8-4.395 9.8-9.8s-4.395-9.8-9.8-9.8-9.8 4.395-9.8 9.8c0 2.098.547 4.143 1.588 5.946l-1.687 6.162 6.162-1.687c1.804 1.04 3.849 1.587 5.946 1.587zM18.5 14.3c-.244-.121-1.442-.71-1.666-.79-.224-.08-.387-.121-.55.121-.163.244-.63.79-.77.953-.14.163-.282.182-.525.06s-1.028-.379-1.958-1.21c-.728-.65-1.212-1.458-1.354-1.701-.14-.244-.012-.387.108-.508.108-.108.244-.282.366-.423.121-.14.163-.244.244-.406.08-.163.04-.305-.02-.426-.06-.121-.55-1.32-.75-1.826-.2-.485-.407-.418-.55-.418-.14-.012-.305-.012-.467-.012s-.426.06-.648.305c-.224.244-.863.84-1.06 1.028-.196.182-.387.406-.467.648-.08.244-.163.526 0 .807.163.282.862 1.826 2.11 3.011 1.482 1.353 2.606 1.826 3.01 1.958.406.132.75.06 1.028-.08.282-.163.863-.526 1.107-.708.244-.182.387-.121.55.06.163.182 1.028 1.21 1.21 1.41.182.2.305.305.406.305.1.012.244-.06.305-.121.06-.06.244-.244.366-.467.121-.224.121-.426.06-.467z"/></svg>
+    </a>
+    
+    <!-- Toast Notification (für Copy-to-Clipboard) -->
+    <div id="toast-notification" class="toast-notification" role="status" aria-live="polite">
+        <span class="toast-icon" aria-hidden="true">✓</span>
+        <span id="toast-message"></span>
+    </div>
+
+    <!-- JavaScript -->
+    <script type="module">
+        /*
+        =================================================================
+        APP.JS - Haupt-Skript für Ana's Spanish Map
+        =================================================================
+        Module:
+        1. i18n:        Internationalisierung
+        2. UI:          Allgemeine UI-Interaktionen (Theme, Mobile Nav, FAQ)
+        3. Scroll:      Scroll-basierte Interaktionen (Header, Progress, Reveal)
+        4. Testimonials: Logik für Testimonial-Karussell
+        5. Forms:       Formspree-Handler und Copy-to-Clipboard
+        6. Analytics:   Event-Tracking (simuliert)
+        7. Init:        App-Initialisierung
+        */
+
+        // ---------------------------------------------------------------
+        // 1. i18n: Internationalisierungs-Modul
+        // ---------------------------------------------------------------
+        const i18n = (() => {
+            const translations = {
+                // --- Deutsch (de) ---
+                de: {
+                    title: "Ana's Spanish Map | Spanisch lernen online",
+                    metaDescription: "Lerne Spanisch online mit Ana. Konversationsunterricht (A1-B2), maßgeschneidert. Buche deine kostenlose Probestunde.",
+                    ogLocale: "de_DE",
+                    schemaDescription: "Zertifizierter Spanischunterricht online mit Fokus auf Konversation für die Stufen A1-B2. Persönlich, flexibel und praxisnah. Buche eine kostenlose Probestunde.",
+                    schemaOfferName: "Online Spanisch-Konversationsunterricht",
+                    schemaOfferDescription: "50-minütige private Spanischstunde (A1-B2) über Zoom/Meet. Inklusive Materialien. Pakete verfügbar.",
+                    schemaFaq: [
+                        { q: "Welche Zeiten bietest du an?", a: "Ich unterrichte Montag bis Freitag, morgens, nachmittags und abends in GMT-5 (Peru Zeit). Der Buchungskalender zeigt dir automatisch alle verfügbaren Zeiten in deiner lokalen Zeitzone an." },
+                        { q: "Für welches Level bietest du Unterricht an?", a: "Ich unterrichte alle Levels von A1 (Anfänger) bis B2 (fortgeschrittene Mittelstufe). Auch DELE-Vorbereitung für diese Stufen ist möglich!" },
+                        { q: "Welche Technik brauche ich?", a: "Du brauchst nur einen Computer, Tablet oder Smartphone mit einer stabilen Internetverbindung. Wir nutzen gängige Video-Plattformen (Zoom, Google Meet, Skype). Alle Materialien teile ich digital mit dir." },
+                        { q: "Wie läuft die Stornierung ab?", a: "Du kannst bis 24 Stunden vor dem Termin kostenlos umbuchen oder absagen. Bei späterer Absage oder Nichterscheinen wird die Stunde voll berechnet, da ich diese Zeit für dich reserviert habe." }
+                    ],
+                    skipLink: "Zum Hauptinhalt springen",
+                    "nav.about": "Über mich",
+                    "nav.pricing": "Preise",
+                    "nav.testimonials": "Bewertungen",
+                    "nav.contact": "Kontakt",
+                    "nav.toggle": "Navigation umschalten",
+                    "hero.badge1": "Kostenlose Probestunde",
+                    "hero.headline": "Spanisch, das du wirklich sprichst.",
+                    "hero.subheadline": "Konversation im echten Kontext – maßgeschneidert für deine Ziele (A1–B2) und mit Fokus auf die Praxis.",
+                    "hero.ctaPrimary": "Probestunde anfragen",
+                    "hero.ctaSecondary": "Preise ansehen",
+                    "benefits.tagline": "Der Unterschied",
+                    "benefits.headline": "Warum mit mir lernen?",
+                    "benefits.card1.title": "Natürlich sprechen",
+                    "benefits.card1.text": "Wir simulieren echte Situationen und nutzen Vokabular, das du sofort anwenden kannst.",
+                    "benefits.card2.title": "Maßgeschneidert",
+                    "benefits.card2.text": "Dein Ziel, dein Level und dein Lernstil bestimmen den Inhalt jeder einzelnen Stunde.",
+                    "benefits.card3.title": "Grammatik integriert",
+                    "benefits.card3.text": "Grammatik wird im Kontext erklärt, nicht als trockene Regel. So bleibt sie hängen.",
+                    "about.tagline": "¡Hola!",
+                    "about.headline": "Ich bin Ana, deine Spanischlehrerin",
+                    "about.p1": "Als zertifizierte Spanischlehrerin (DELE) mit über 6 Jahren Erfahrung habe ich eine Mission: Dir zu helfen, Spanisch mit Selbstvertrauen und Freude zu sprechen.",
+                    "about.p2": "Mein Unterricht ist dynamisch, persönlich und immer auf Konversation ausgerichtet. Wir konzentrieren uns auf das, was du wirklich brauchst – ob für den Urlaub, den Beruf oder die DELE-Prüfung.",
+                    "about.fact1": "<strong>6+ Jahre</strong> Unterrichtserfahrung",
+                    "about.fact2": "<strong>DELE-Zertifiziert</strong> (A1–B2 Vorbereitung)",
+                    "about.fact3": "Fokus auf <strong>Konversation & Praxis</strong>",
+                    "pricing.tagline": "Flexibel & Fair",
+                    "pricing.headline": "Preise & Pakete",
+                    "pricing.currency.symbol": "€",
+                    "pricing.currency.code": "EUR",
+                    "pricing.popularBadge": "Beliebt",
+                    "pricing.trial.title": "Probestunde",
+                    "pricing.trial.description": "Lerne mich kennen",
+                    "pricing.trial.price": "0",
+                    "pricing.trial.duration": "30 Minuten",
+                    "pricing.trial.feat1": "Level-Einschätzung",
+                    "pricing.trial.feat2": "Ziele besprechen",
+                    "pricing.trial.feat3": "Unverbindlich",
+                    "pricing.single.title": "Einzelstunde",
+                    "pricing.single.description": "Volle Flexibilität",
+                    "pricing.single.price": "18",
+                    "pricing.single.duration": "50 Minuten",
+                    "pricing.single.feat1": "Individuelle Materialien",
+                    "pricing.single.feat2": "Flexibel buchbar",
+                    "pricing.pack10.title": "10er Paket",
+                    "pricing.pack10.description": "Konstant dranbleiben",
+                    "pricing.pack10.price": "180",
+                    "pricing.pack10.duration": "10 x 50 Minuten",
+                    "pricing.pack10.feat1": "Preis pro Stunde: 18€",
+                    "pricing.pack10.feat2": "6 Monate gültig",
+                    "pricing.pack20.title": "20er Paket",
+                    "pricing.pack20.description": "Spare 54€ + 3 Bonusstunden!",
+                    "pricing.pack20.price": "360",
+                    "pricing.pack20.duration": "23 Stunden (20 + 3 gratis)",
+                    "pricing.pack20.feat1": "Effektiv nur 15,65€ / Stunde",
+                    "pricing.pack20.feat2": "12 Monate gültig",
+                    "pricing.ctaBook": "Jetzt anfragen",
+                    "pricing.footer.payment": "💳 Zahlung via PayPal oder Banküberweisung (EUR).",
+                    "pricing.footer.cancellation": "📅 Kostenlose Stornierung bis 24 Stunden vor dem Termin.",
+                    "testimonials.tagline": "¡Muchas gracias!",
+                    "testimonials.headline": "Was meine Schüler sagen",
+                    "testimonials.t1.text": "Ich habe selten jemanden so charismatisch und freundlich erlebt. Ana unterrichtet mit Geduld, Humor und Herz. Jede Stunde ist ein Geschenk.",
+                    "testimonials.t1.author": "Leon",
+                    "testimonials.t1.meta": "aus Deutschland",
+                    "testimonials.t2.text": "Ana spricht klar und ermutigt. Abwechslungsreiche Lektionen (Videos, Übungen, Gespräche, Hausaufgaben) und sehr sympathisch.",
+                    "testimonials.t2.author": "Jon",
+                    "testimonials.t2.meta": "aus den USA",
+                    "testimonials.t3.text": "Wunderbare Tutorin, stets vorbereitet und professionell. Personalisiert mein Lernen, gibt Tipps fürs Selbststudium; Sprechen und Grammatik stark verbessert.",
+                    "testimonials.t3.author": "Katelyn",
+                    "testimonials.t3.meta": "aus den USA",
+                    "testimonials.t4.text": "Sehr froh, Ana gefunden zu haben. Gründlich und extrem geduldig, auch bei wiederholten Fehlern. Mit jeder Stunde lerne ich mehr.",
+                    "testimonials.t4.author": "Jake",
+                    "testimonials.t4.meta": "aus Großbritannien",
+                    "faq.tagline": "Antworten",
+                    "faq.headline": "Häufige Fragen",
+                    "faq.q1.text": "Welche Zeiten bietest du an?",
+                    "faq.a1.text": "Ich unterrichte Montag bis Freitag, morgens, nachmittags und abends in GMT-5 (Peru Zeit). Der Buchungskalender zeigt dir automatisch alle verfügbaren Zeiten in deiner lokalen Zeitzone an.",
+                    "faq.q2.text": "Für welches Level bietest du Unterricht an?",
+                    "faq.a2.text": "Ich unterrichte alle Levels von A1 (Anfänger) bis B2 (fortgeschrittene Mittelstufe). Auch DELE-Vorbereitung für diese Stufen ist möglich!",
+                    "faq.q3.text": "Welche Technik brauche ich?",
+                    "faq.a3.text": "Du brauchst nur einen Computer, Tablet oder Smartphone mit einer stabilen Internetverbindung. Wir nutzen gängige Video-Plattformen (Zoom, Google Meet, Skype). Alle Materialien teile ich digital mit dir.",
+                    "faq.q4.text": "Wie läuft die Stornierung ab?",
+                    "faq.a4.text": "Du kannst bis 24 Stunden vor dem Termin kostenlos umbuchen oder absagen. Bei späterer Absage oder Nichterscheinen wird die Stunde voll berechnet, da ich diese Zeit für dich reserviert habe.",
+                    "video.tagline": "Meine Methode",
+                    "video.headline": "Schau mir beim Unterrichten zu",
+                    "contact.tagline": "Noch Fragen?",
+                    "contact.headline": "Kontaktiere mich",
+                    "contact.p1": "Wenn du Fragen hast oder unsicher bist, welches Paket das richtige für dich ist, schreib mir einfach. Ich antworte dir so schnell wie möglich!",
+                    "contact.email.title": "Email",
+                    "contact.copy": "Kopieren",
+                    "contact.copied": "Kopiert!",
+                    "contact.whatsapp.title": "WhatsApp",
+                    "contact.whatsapp.text": "Schreib mir direkt für eine schnelle Antwort.",
+                    "contact.whatsapp.cta": "WhatsApp öffnen",
+                    "contact.instagram.title": "Instagram",
+                    "contact.instagram.text": "Tägliche Lerntipps und Einblicke.",
+                    "contact.form.title": "... oder schick mir eine Nachricht",
+                    "contact.form.name.label": "Name",
+                    "contact.form.name.placeholder": "Dein Name",
+                    "contact.form.email.label": "E-Mail",
+                    "contact.form.email.placeholder": "deine@email.com",
+                    "contact.form.level.label": "Dein Spanisch-Level (ca.)",
+                    "contact.form.level.optionDefault": "Wähle dein Level...",
+                    "contact.form.level.optionA1": "A1 - Anfänger",
+                    "contact.form.level.optionA2": "A2 - Grundkenntnisse",
+                    "contact.form.level.optionB1": "B1 - Mittelstufe",
+                    "contact.form.level.optionB2": "B2 - Fortgeschr. Mittelstufe",
+                    "contact.form.level.optionUnsure": "Ich bin unsicher",
+                    "contact.form.message.label": "Deine Nachricht",
+                    "contact.form.message.placeholder": "Erzähl mir von deinen Zielen oder stell deine Frage...",
+                    "contact.form.submit": "Nachricht senden",
+                    "contact.form.success": "Danke! Deine Nachricht wurde gesendet.",
+                    "contact.form.error": "Fehler. Bitte versuche es später erneut.",
+                    "footer.tagline": "Deine Reise zu fließendem Spanisch.",
+                    "footer.imprint": "Impressum",
+                    "footer.privacy": "Datenschutzerklärung",
+                    "footer.terms": "AGB & Storno-Policy",
+                    "footer.rights": "Alle Rechte vorbehalten.",
+                    "stickyCta.headline": "Bereit zu starten?",
+                    "stickyCta.text": "Buche jetzt deine kostenlose 30-minütige Probestunde.",
+                    "stickyCta.cta": "Probestunde anfragen",
+                    "whatsapp.label": "Chat auf WhatsApp",
+                    "whatsapp.link": "https://wa.me/+51987654321?text=Hola%20Ana%2C%20ich%20interessiere%20mich%20f%C3%BCr%20deinen%20Spanischunterricht."
+                },
+                // --- English (en) ---
+                en: {
+                    title: "Ana's Spanish Map | Learn Spanish Online",
+                    metaDescription: "Learn Spanish online with Ana. Conversational lessons (A1-B2), tailored to you. Book your free trial lesson.",
+                    ogLocale: "en_US",
+                    schemaDescription: "Certified online Spanish lessons focusing on conversation for levels A1-B2. Personal, flexible, and practical. Book a free trial lesson.",
+                    schemaOfferName: "Online Spanish Conversation Lessons",
+                    schemaOfferDescription: "50-minute private Spanish lesson (A1-B2) via Zoom/Meet. Materials included. Packages available.",
+                    schemaFaq: [
+                        { q: "What times do you offer?", a: "I teach Monday to Friday, mornings, afternoons, and evenings in GMT-5 (Peru time). The booking calendar automatically shows all available times in your local timezone." },
+                        { q: "What levels do you teach?", a: "I teach all levels from A1 (beginner) to B2 (upper-intermediate). DELE preparation for these levels is also available!" },
+                        { q: "What technology do I need?", a: "You just need a computer, tablet, or smartphone with a stable internet connection. We use common video platforms (Zoom, Google Meet, Skype). I'll share all materials digitally with you." },
+                        { q: "How does cancellation work?", a: "You can reschedule or cancel free of charge up to 24 hours before the appointment. Later cancellations or no-shows will be charged in full, as I have reserved this time for you." }
+                    ],
+                    skipLink: "Skip to main content",
+                    "nav.about": "About",
+                    "nav.pricing": "Pricing",
+                    "nav.testimonials": "Testimonials",
+                    "nav.contact": "Contact",
+                    "nav.toggle": "Toggle navigation",
+                    "hero.badge1": "Free Trial Lesson",
+                    "hero.headline": "Spanish you'll actually speak.",
+                    "hero.subheadline": "Real-life conversation, tailored to your goals (A1–B2), and focused on practice.",
+                    "hero.ctaPrimary": "Request Trial Lesson",
+                    "hero.ctaSecondary": "View Pricing",
+                    "benefits.tagline": "The Difference",
+                    "benefits.headline": "Why Learn With Me?",
+                    "benefits.card1.title": "Speak Naturally",
+                    "benefits.card1.text": "We simulate real situations and use vocabulary that you can apply immediately.",
+                    "benefits.card2.title": "Tailor-Made",
+                    "benefits.card2.text": "Your goal, your level, and your learning style determine the content of every single lesson.",
+                    "benefits.card3.title": "Integrated Grammar",
+                    "benefits.card3.text": "Grammar is explained in context, not as a dry rule. That's how it sticks.",
+                    "about.tagline": "¡Hola!",
+                    "about.headline": "I'm Ana, Your Spanish Teacher",
+                    "about.p1": "As a certified Spanish teacher (DELE) with 6+ years of experience, I have one mission: to help you speak Spanish with confidence and joy.",
+                    "about.p2": "My lessons are dynamic, personal, and always focused on conversation. We concentrate on what you really need—whether for vacation, your job, or the DELE exam.",
+                    "about.fact1": "<strong>6+ years</strong> of teaching experience",
+                    "about.fact2": "<strong>DELE-Certified</strong> (A1–B2 preparation)",
+                    "about.fact3": "Focus on <strong>Conversation & Practice</strong>",
+                    "pricing.tagline": "Flexible & Fair",
+                    "pricing.headline": "Pricing & Packages",
+                    "pricing.currency.symbol": "$",
+                    "pricing.currency.code": "USD",
+                    "pricing.popularBadge": "Popular",
+                    "pricing.trial.title": "Trial Lesson",
+                    "pricing.trial.description": "Get to know me",
+                    "pricing.trial.price": "0",
+                    "pricing.trial.duration": "30 minutes",
+                    "pricing.trial.feat1": "Level assessment",
+                    "pricing.trial.feat2": "Discuss goals",
+                    "pricing.trial.feat3": "No commitment",
+                    "pricing.single.title": "Single Lesson",
+                    "pricing.single.description": "Full flexibility",
+                    "pricing.single.price": "18",
+                    "pricing.single.duration": "50 minutes",
+                    "pricing.single.feat1": "Individual materials",
+                    "pricing.single.feat2": "Flexible booking",
+                    "pricing.pack10.title": "10-Lesson Package",
+                    "pricing.pack10.description": "Stay consistent",
+                    "pricing.pack10.price": "180",
+                    "pricing.pack10.duration": "10 x 50 minutes",
+                    "pricing.pack10.feat1": "Price per lesson: $18",
+                    "pricing.pack10.feat2": "Valid for 6 months",
+                    "pricing.pack20.title": "20-Lesson Package",
+                    "pricing.pack20.description": "Save $54 + 3 free lessons!",
+                    "pricing.pack20.price": "360",
+                    "pricing.pack20.duration": "23 lessons (20 + 3 free)",
+                    "pricing.pack20.feat1": "Effectively $15.65 / lesson",
+                    "pricing.pack20.feat2": "Valid for 12 months",
+                    "pricing.ctaBook": "Inquire Now",
+                    "pricing.footer.payment": "💳 Payment via PayPal.",
+                    "pricing.footer.cancellation": "📅 Free cancellation up to 24 hours before the appointment.",
+                    "testimonials.tagline": "¡Muchas gracias!",
+                    "testimonials.headline": "What My Students Say",
+                    "testimonials.t1.text": "I’ve rarely met someone so charismatic and kind. Ana teaches with patience, humor, and heart. Every lesson is a gift.",
+                    "testimonials.t1.author": "Leon",
+                    "testimonials.t1.meta": "from Germany",
+                    "testimonials.t2.text": "Ana speaks clearly and is encouraging. Varied lessons (videos, exercises, conversations, homework) and very likeable.",
+                    "testimonials.t2.author": "Jon",
+                    "testimonials.t2.meta": "from the USA",
+                    "testimonials.t3.text": "Wonderful tutor—always prepared and professional. Tailors my learning, gives self-study tips; speaking and grammar much improved.",
+                    "testimonials.t3.author": "Katelyn",
+                    "testimonials.t3.meta": "from the USA",
+                    "testimonials.t4.text": "Very happy I found Ana. Thorough and extremely patient, even when I repeat mistakes. I learn more every lesson.",
+                    "testimonials.t4.author": "Jake",
+                    "testimonials.t4.meta": "from the UK",
+                    "faq.tagline": "Answers",
+                    "faq.headline": "Frequently Asked Questions",
+                    "faq.q1.text": "What times do you offer?",
+                    "faq.a1.text": "I teach Monday to Friday, mornings, afternoons, and evenings in GMT-5 (Peru time). The booking calendar automatically shows all available times in your local timezone.",
+                    "faq.q2.text": "What levels do you teach?",
+                    "faq.a2.text": "I teach all levels from A1 (beginner) to B2 (upper-intermediate). DELE preparation for these levels is also available!",
+                    "faq.q3.text": "What technology do I need?",
+                    "faq.a3.text": "You just need a computer, tablet, or smartphone with a stable internet connection. We use common video platforms (Zoom, Google Meet, Skype). I'll share all materials digitally with you.",
+                    "faq.q4.text": "How does cancellation work?",
+                    "faq.a4.text": "You can reschedule or cancel free of charge up to 24 hours before the appointment. Later cancellations or no-shows will be charged in full, as I have reserved this time for you.",
+                    "video.tagline": "My Method",
+                    "video.headline": "See How I Teach",
+                    "contact.tagline": "More Questions?",
+                    "contact.headline": "Get In Touch",
+                    "contact.p1": "If you have questions or are unsure which package is right for you, just send me a message. I'll get back to you as soon as possible!",
+                    "contact.email.title": "Email",
+                    "contact.copy": "Copy",
+                    "contact.copied": "Copied!",
+                    "contact.whatsapp.title": "WhatsApp",
+                    "contact.whatsapp.text": "Message me directly for a quick answer.",
+                    "contact.whatsapp.cta": "Open WhatsApp",
+                    "contact.instagram.title": "Instagram",
+                    "contact.instagram.text": "Daily learning tips and insights.",
+                    "contact.form.title": "... or send me a message",
+                    "contact.form.name.label": "Name",
+                    "contact.form.name.placeholder": "Your Name",
+                    "contact.form.email.label": "Email",
+                    "contact.form.email.placeholder": "your@email.com",
+                    "contact.form.level.label": "Your Spanish Level (approx.)",
+                    "contact.form.level.optionDefault": "Select your level...",
+                    "contact.form.level.optionA1": "A1 - Beginner",
+                    "contact.form.level.optionA2": "A2 - Elementary",
+                    "contact.form.level.optionB1": "B1 - Intermediate",
+                    "contact.form.level.optionB2": "B2 - Upper Intermediate",
+                    "contact.form.level.optionUnsure": "I'm not sure",
+                    "contact.form.message.label": "Your Message",
+                    "contact.form.message.placeholder": "Tell me about your goals or ask your question...",
+                    "contact.form.submit": "Send Message",
+                    "contact.form.success": "Thanks! Your message has been sent.",
+                    "contact.form.error": "Error. Please try again later.",
+                    "footer.tagline": "Your journey to Spanish fluency.",
+                    "footer.imprint": "Imprint",
+                    "footer.privacy": "Privacy Policy",
+                    "footer.terms": "Terms & Cancellation Policy",
+                    "footer.rights": "All rights reserved.",
+                    "stickyCta.headline": "Ready to start?",
+                    "stickyCta.text": "Book your free 30-minute trial lesson now.",
+                    "stickyCta.cta": "Request Trial Lesson",
+                    "whatsapp.label": "Chat on WhatsApp",
+                    "whatsapp.link": "https://wa.me/+51987654321?text=Hi%20Ana%2C%20I'm%20interested%20in%20your%20Spanish%20lessons."
+                },
+                // --- Español (es) ---
+                es: {
+                    title: "Ana's Spanish Map | Aprende Español Online",
+                    metaDescription: "Aprende español online con Ana. Clases de conversación (A1-B2), personalizadas. Reserva tu clase de prueba gratis.",
+                    ogLocale: "es_ES",
+                    schemaDescription: "Clases de español online certificadas (DELE) con enfoque en conversación para niveles A1-B2. Personal, flexible y práctico. Reserva una clase de prueba gratis.",
+                    schemaOfferName: "Clases de Conversación de Español Online",
+                    schemaOfferDescription: "Clase privada de español de 50 minutos (A1-B2) por Zoom/Meet. Materiales incluidos. Paquetes disponibles.",
+                    schemaFaq: [
+                        { q: "¿Qué horarios ofreces?", a: "Enseño de lunes a viernes, mañanas, tardes y noches en GMT-5 (hora de Perú). El calendario de reservas detecta automáticamente tu zona horaria local." },
+                        { q: "¿Qué niveles enseñas?", a: "Enseño todos los niveles desde A1 (principiante) hasta B2 (intermedio-alto). ¡Preparación para el DELE (niveles A1-B2) también disponible!" },
+                        { q: "¿Qué tecnología necesito?", a: "Solo necesitas un computador, tablet o smartphone con conexión estable a internet. Usamos plataformas de video comunes (Zoom, Google Meet, Skype). Compartiré todos los materiales digitalmente." },
+                        { q: "¿Cómo funciona la cancelación?", a: "Puedes reprogramar o cancelar gratis hasta 24 horas antes de la cita. Cancelaciones posteriores o si no te presentas, se cobrará la clase completa, ya que he reservado ese tiempo para ti." }
+                    ],
+                    skipLink: "Saltar al contenido principal",
+                    "nav.about": "Sobre mí",
+                    "nav.pricing": "Precios",
+                    "nav.testimonials": "Testimonios",
+                    "nav.contact": "Contacto",
+                    "nav.toggle": "Alternar navegación",
+                    "hero.badge1": "Clase de Prueba Gratis",
+                    "hero.headline": "Español que realmente vas a hablar.",
+                    "hero.subheadline": "Conversación en contextos reales, diseñada para tus metas (A1–B2) y enfocada en la práctica.",
+                    "hero.ctaPrimary": "Solicitar clase de prueba",
+                    "hero.ctaSecondary": "Ver precios",
+                    "benefits.tagline": "La Diferencia",
+                    "benefits.headline": "¿Por qué aprender conmigo?",
+                    "benefits.card1.title": "Habla con naturalidad",
+                    "benefits.card1.text": "Simulamos situaciones reales y usamos vocabulario que puedes aplicar de inmediato.",
+                    "benefits.card2.title": "A tu medida",
+                    "benefits.card2.text": "Tu meta, tu nivel y tu estilo de aprendizaje definen el contenido de cada clase.",
+                    "benefits.card3.title": "Gramática integrada",
+                    "benefits.card3.text": "La gramática se explica en contexto, no como una regla seca. Así se queda grabada.",
+                    "about.tagline": "¡Hola!",
+                    "about.headline": "Soy Ana, tu profesora de español",
+                    "about.p1": "Como profesora de español certificada (DELE) con más de 6 años de experiencia, tengo una misión: ayudarte a hablar español con confianza y alegría.",
+                    "about.p2": "Mis clases son dinámicas, personales y siempre enfocadas en la conversación. Nos centramos en lo que realmente necesitas, ya sea para vacaciones, tu trabajo o el examen DELE.",
+                    "about.fact1": "<strong>+6 años</strong> de experiencia docente",
+                    "about.fact2": "<strong>Certificada DELE</strong> (preparación A1-B2)",
+                    "about.fact3": "Enfoque en <strong>Conversación y Práctica</strong>",
+                    "pricing.tagline": "Flexible y Justo",
+                    "pricing.headline": "Precios y Paquetes",
+                    "pricing.currency.symbol": "$",
+                    "pricing.currency.code": "USD",
+                    "pricing.popularBadge": "Popular",
+                    "pricing.trial.title": "Clase de Prueba",
+                    "pricing.trial.description": "Conóceme",
+                    "pricing.trial.price": "0",
+                    "pricing.trial.duration": "30 minutos",
+                    "pricing.trial.feat1": "Evaluación de nivel",
+                    "pricing.trial.feat2": "Discutir objetivos",
+                    "pricing.trial.feat3": "Sin compromiso",
+                    "pricing.single.title": "Clase Individual",
+                    "pricing.single.description": "Flexibilidad total",
+                    "pricing.single.price": "18",
+                    "pricing.single.duration": "50 minutos",
+                    "pricing.single.feat1": "Materiales individuales",
+                    "pricing.single.feat2": "Reserva flexible",
+                    "pricing.pack10.title": "Paquete de 10 Clases",
+                    "pricing.pack10.description": "Mantén la constancia",
+                    "pricing.pack10.price": "180",
+                    "pricing.pack10.duration": "10 x 50 minutos",
+                    "pricing.pack10.feat1": "Precio por clase: $18",
+                    "pricing.pack10.feat2": "Válido por 6 meses",
+                    "pricing.pack20.title": "Paquete de 20 Clases",
+                    "pricing.pack20.description": "¡Ahorra $54 + 3 clases gratis!",
+                    "pricing.pack20.price": "360",
+                    "pricing.pack20.duration": "23 clases (20 + 3 gratis)",
+                    "pricing.pack20.feat1": "Efectivo: $15.65 / clase",
+                    "pricing.pack20.feat2": "Válido por 12 meses",
+                    "pricing.ctaBook": "Solicitar ahora",
+                    "pricing.footer.payment": "💳 Pago vía PayPal.",
+                    "pricing.footer.cancellation": "📅 Cancelación gratuita hasta 24 horas antes.",
+                    "testimonials.tagline": "¡Muchas gracias!",
+                    "testimonials.headline": "Lo que dicen mis estudiantes",
+                    "testimonials.t1.text": "Rara vez he conocido a alguien tan carismática y amable. Ana enseña con paciencia, humor y corazón. Cada clase es un regalo.",
+                    "testimonials.t1.author": "Leon",
+                    "testimonials.t1.meta": "de Alemania",
+                    "testimonials.t2.text": "Ana habla con claridad y motiva. Clases variadas (videos, ejercicios, conversaciones, tareas) y muy simpática.",
+                    "testimonials.t2.author": "Jon",
+                    "testimonials.t2.meta": "de EE.UU.",
+                    "testimonials.t3.text": "Tutora maravillosa, siempre preparada y profesional. Personaliza mi aprendizaje y da consejos para estudiar; mi habla y gramática mejoraron mucho.",
+                    "testimonials.t3.author": "Katelyn",
+                    "testimonials.t3.meta": "de EE.UU.",
+                    "testimonials.t4.text": "Muy contento de haber encontrado a Ana. Minuciosa y muy paciente, incluso con errores repetidos. Aprendo más en cada clase.",
+                    "testimonials.t4.author": "Jake",
+                    "testimonials.t4.meta": "del Reino Unido",
+                    "faq.tagline": "Respuestas",
+                    "faq.headline": "Preguntas Frecuentes",
+                    "faq.q1.text": "¿Qué horarios ofreces?",
+                    "faq.a1.text": "Enseño de lunes a viernes, mañanas, tardes y noches en GMT-5 (hora de Perú). El calendario de reservas detecta automáticamente tu zona horaria local.",
+                    "faq.q2.text": "¿Qué niveles enseñas?",
+                    "faq.a2.text": "Enseño todos los niveles desde A1 (principiante) hasta B2 (intermedio-alto). ¡Preparación para el DELE (niveles A1-B2) también disponible!",
+                    "faq.q3.text": "¿Qué tecnología necesito?",
+                    "faq.a3.text": "Solo necesitas un computador, tablet o smartphone con conexión estable a internet. Usamos plataformas de video comunes (Zoom, Google Meet, Skype). Compartiré todos los materiales digitalmente.",
+                    "faq.q4.text": "¿Cómo funciona la cancelación?",
+                    "faq.a4.text": "Puedes reprogramar o cancelar gratis hasta 24 horas antes de la cita. Cancelaciones posteriores o si no te presentas, se cobrará la clase completa, ya que he reservado ese tiempo para ti.",
+                    "video.tagline": "Mi Método",
+                    "video.headline": "Mira cómo enseño",
+                    "contact.tagline": "¿Más preguntas?",
+                    "contact.headline": "Contáctame",
+                    "contact.p1": "Si tienes preguntas o no estás seguro de qué paquete es el adecuado para ti, solo envíame un mensaje. ¡Te responderé lo antes posible!",
+                    "contact.email.title": "Email",
+                    "contact.copy": "Copiar",
+                    "contact.copied": "¡Copiado!",
+                    "contact.whatsapp.title": "WhatsApp",
+                    "contact.whatsapp.text": "Escríbeme directamente para una respuesta rápida.",
+                    "contact.whatsapp.cta": "Abrir WhatsApp",
+                    "contact.instagram.title": "Instagram",
+                    "contact.instagram.text": "Consejos de aprendizaje diarios.",
+                    "contact.form.title": "... o envíame un mensaje",
+                    "contact.form.name.label": "Nombre",
+                    "contact.form.name.placeholder": "Tu Nombre",
+                    "contact.form.email.label": "Correo electrónico",
+                    "contact.form.email.placeholder": "tu@email.com",
+                    "contact.form.level.label": "Tu nivel de español (aprox.)",
+                    "contact.form.level.optionDefault": "Selecciona tu nivel...",
+                    "contact.form.level.optionA1": "A1 - Principiante",
+                    "contact.form.level.optionA2": "A2 - Básico",
+                    "contact.form.level.optionB1": "B1 - Intermedio",
+                    "contact.form.level.optionB2": "B2 - Intermedio-Alto",
+                    "contact.form.level.optionUnsure": "No estoy seguro",
+                    "contact.form.message.label": "Tu Mensaje",
+                    "contact.form.message.placeholder": "Cuéntame tus objetivos o haz tu pregunta...",
+                    "contact.form.submit": "Enviar Mensaje",
+                    "contact.form.success": "¡Gracias! Tu mensaje ha sido enviado.",
+                    "contact.form.error": "Error. Por favor, inténtalo de nuevo más tarde.",
+                    "footer.tagline": "Tu viaje hacia la fluidez en español.",
+                    "footer.imprint": "Aviso Legal",
+                    "footer.privacy": "Política de Privacidad",
+                    "footer.terms": "Términos y Política de Cancelación",
+                    "footer.rights": "Todos los derechos reservados.",
+                    "stickyCta.headline": "¿Listo/a para empezar?",
+                    "stickyCta.text": "Reserva tu clase de prueba gratuita de 30 minutos.",
+                    "stickyCta.cta": "Solicitar clase de prueba",
+                    "whatsapp.label": "Chatear en WhatsApp",
+                    "whatsapp.link": "https://wa.me/+51987654321?text=Hola%20Ana%2C%20estoy%20interesado%2Fa%20en%20tus%20clases%20de%20espa%C3%B1ol."
+                }
+            };
+
+            let currentLang = 'de';
+
+            const getLangFromBrowser = () => {
+                const lang = navigator.language.split('-')[0];
+                return translations[lang] ? lang : 'en'; // Standard 'en', wenn Browsersprache nicht de/en/es ist
+            };
+
+            const setLang = (lang) => {
+                if (!translations[lang]) {
+                    console.warn(`Language "${lang}" not found. Defaulting to 'de'.`);
+                    lang = 'de';
+                }
+                currentLang = lang;
+                document.documentElement.lang = lang;
+                
+                // Analytics-Event
+                Analytics.track(`language_switch_${lang}`);
+
+                translatePage();
+                updateLangButtons();
+                updateMetaTags();
+                updateHreflang();
+                updateSchemaOrg();
+                updateWhatsAppLink();
+            };
+
+            const translatePage = () => {
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.dataset.i18n;
+                    const translation = getTranslation(key);
+                    if (translation !== undefined) {
+                        // Unterscheidet zwischen einfachem Text und HTML-Inhalt
+                        if (key.includes('fact') || key.includes('timezone.text')) {
+                            el.innerHTML = translation;
+                        } else {
+                            el.textContent = translation;
+                        }
+                    } else {
+                        console.warn(`Missing translation for key: ${key}`);
+                    }
+                });
+                
+                document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                    const key = el.dataset.i18nPlaceholder;
+                    const translation = getTranslation(key);
+                    if (translation) {
+                        el.placeholder = translation;
+                    }
+                });
+                
+                document.querySelectorAll('[data-i18n-label]').forEach(el => {
+                    const key = el.dataset.i18nLabel;
+                    const translation = getTranslation(key);
+                    if (translation) {
+                        el.setAttribute('aria-label', translation);
+                    }
+                });
+            };
+            
+            const updateLangButtons = () => {
+                document.querySelectorAll('.lang-switcher-btn').forEach(btn => {
+                    const isPressed = btn.dataset.lang === currentLang;
+                    btn.classList.toggle('is-active', isPressed);
+                    btn.setAttribute('aria-pressed', isPressed);
+                });
+            };
+            
+            const updateMetaTags = () => {
+                const lang = currentLang;
+                const title = getTranslation('title');
+                const description = getTranslation('metaDescription');
+                const ogLocale = getTranslation('ogLocale');
+
+                document.title = title;
+                
+                setMetaContent('meta[name="description"]', description);
+                setMetaContent('meta[property="og:title"]', title);
+                setMetaContent('meta[property="og:description"]', description);
+                setMetaContent('meta[property="og:locale"]', ogLocale);
+                setMetaContent('meta[name="twitter:title"]', title);
+                setMetaContent('meta[name="twitter:description"]', description);
+            };
+
+            const setMetaContent = (selector, content) => {
+                const el = document.querySelector(selector);
+                if (el) {
+                    el.setAttribute('content', content);
+                }
+            };
+            
+            const updateHreflang = () => {
+                // Alte hreflang-Tags entfernen
+                document.querySelectorAll('link[rel="alternate"][hreflang]').forEach(el => el.remove());
+                
+                const canonicalUrl = document.querySelector('link[rel="canonical"]')?.href || 'https://anas-spanish-map.com/';
+                
+                Object.keys(translations).forEach(lang => {
+                    const link = document.createElement('link');
+                    link.rel = 'alternate';
+                    link.hreflang = lang;
+                    // Annahme: /en/ oder /es/ für andere Sprachen. / für 'de'.
+                    link.href = lang === 'de' ? canonicalUrl : `${canonicalUrl}${lang}/`;
+                    document.head.appendChild(link);
+                });
+                
+                // x-default hinzufügen
+                const linkDefault = document.createElement('link');
+                linkDefault.rel = 'alternate';
+                linkDefault.hreflang = 'x-default';
+                linkDefault.href = canonicalUrl; // 'en' als Standard
+                document.head.appendChild(linkDefault);
+            };
+            
+            const updateSchemaOrg = () => {
+                const schemaEl = document.getElementById('schema-org-data');
+                if (!schemaEl) return;
+                
+                const lang = currentLang;
+                const priceSymbol = getTranslation('pricing.currency.symbol');
+                const priceCode = getTranslation('pricing.currency.code');
+
+                const schema = {
+                    "@context": "https://schema.org",
+                    "@type": "Organization",
+                    "name": "Ana's Spanish Map",
+                    "url": "https://anas-spanish-map.com/",
+                    "logo": "https://anas-spanish-map.com/logo.png", // Platzhalter-URL
+                    "sameAs": [
+                        "https://instagram.com/AnasSpanishMap",
+                        "https://youtube.com/@AnasSpanishMap"
+                    ],
+                    "description": getTranslation('schemaDescription'),
+                    "makesOffer": {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": getTranslation('schemaOfferName'),
+                            "description": getTranslation('schemaOfferDescription'),
+                            "serviceType": "LanguageSchool",
+                            "provider": {
+                                "@type": "Person",
+                                "name": "Ana"
+                            }
+                        },
+                        "price": "18", // Basispreis
+                        "priceCurrency": priceCode,
+                        "url": "https://anas-spanish-map.com/#pricing"
+                    },
+                    "potentialAction": {
+                        "@type": "ReserveAction",
+                        "target": {
+                            "@type": "EntryPoint",
+                            "urlTemplate": "https://anas-spanish-map.com/#contact",
+                            "inLanguage": lang,
+                            "actionPlatform": [
+                                "https://schema.org/DesktopWebPlatform",
+                                "https://schema.org/MobileWebPlatform"
+                            ]
+                        },
+                        "name": getTranslation('hero.ctaPrimary')
+                    },
+                    "mainEntity": {
+                        "@type": "FAQPage",
+                        "mainEntity": getTranslation('schemaFaq').map(faq => ({
+                            "@type": "Question",
+                            "name": faq.q,
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": faq.a
+                            }
+                        }))
+                    }
+                };
+                
+                schemaEl.textContent = JSON.stringify(schema);
+            };
+
+            const updateWhatsAppLink = () => {
+                const link = getTranslation('whatsapp.link');
+                const el = document.getElementById('whatsapp-fab');
+                if (el) {
+                    el.href = link;
+                }
+            };
+            
+            const getTranslation = (key) => {
+                const keys = key.split('.');
+                let result = translations[currentLang];
+                for (const k of keys) {
+                    result = result[k];
+                    if (result === undefined) return;
+                }
+                return result;
+            };
+
+            const init = () => {
+                const lang = getLangFromBrowser();
+                setLang(lang);
+                
+                document.querySelectorAll('.lang-switcher').forEach(switcher => {
+                    switcher.addEventListener('click', (e) => {
+                        const btn = e.target.closest('.lang-switcher-btn');
+                        if (btn && btn.dataset.lang !== currentLang) {
+                            setLang(btn.dataset.lang);
+                        }
+                    });
+                });
+            };
+
+            return { init, get: getTranslation };
+        })();
+        
+        // ---------------------------------------------------------------
+        // 2. UI: Allgemeines UI-Modul
+        // ---------------------------------------------------------------
+        const UI = (() => {
+            let theme = 'light';
+            const toggleBtn = document.getElementById('theme-toggle');
+            const mobileToggle = document.getElementById('mobile-menu-toggle');
+            const nav = document.getElementById('main-nav');
+            
+            const initTheme = () => {
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const savedTheme = localStorage.getItem('theme');
+                
+                theme = savedTheme || (prefersDark ? 'dark' : 'light');
+                applyTheme();
+                
+                toggleBtn.addEventListener('click', () => {
+                    theme = theme === 'light' ? 'dark' : 'light';
+                    localStorage.setItem('theme', theme);
+                    applyTheme();
+                });
+
+                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+                    if (!localStorage.getItem('theme')) {
+                        theme = e.matches ? 'dark' : 'light';
+                        applyTheme();
+                    }
+                });
+            };
+
+            const applyTheme = () => {
+                document.documentElement.setAttribute('data-theme', theme);
+                toggleBtn.setAttribute('aria-label', theme === 'dark' ? 'Hellen Modus aktivieren' : 'Dunklen Modus aktivieren');
+                
+                // RGB-Werte für Header-Transparenz aktualisieren
+                if (theme === 'dark') {
+                    document.documentElement.style.setProperty('--bg-color-rgb', '28, 26, 25');
+                } else {
+                    document.documentElement.style.setProperty('--bg-color-rgb', '255, 253, 250');
+                }
+            };
+            
+            const initMobileNav = () => {
+                mobileToggle.addEventListener('click', () => {
+                    const isOpen = nav.classList.toggle('is-open');
+                    mobileToggle.setAttribute('aria-expanded', isOpen);
+                    document.body.style.overflow = isOpen ? 'hidden' : '';
+                    
+                    // Icons umschalten
+                    mobileToggle.querySelector('.icon-open').style.display = isOpen ? 'none' : 'block';
+                    mobileToggle.querySelector('.icon-close').style.display = isOpen ? 'block' : 'none';
+                });
+                
+                // Menü schließen bei Klick auf Link
+                nav.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        nav.classList.remove('is-open');
+                        mobileToggle.setAttribute('aria-expanded', false);
+                        document.body.style.overflow = '';
+                        mobileToggle.querySelector('.icon-open').style.display = 'block';
+                        mobileToggle.querySelector('.icon-close').style.display = 'none';
+                    });
+                });
+            };
+            
+            const initFaq = () => {
+                const faqItems = document.querySelectorAll('.faq-item');
+                faqItems.forEach(item => {
+                    const q = item.querySelector('.faq-question');
+                    const a = item.querySelector('.faq-answer');
+                    
+                    q.addEventListener('click', () => {
+                        const isExpanded = q.getAttribute('aria-expanded') === 'true';
+                        
+                        // Optional: Alle anderen schließen
+                        // faqItems.forEach(i => {
+                        //     i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                        //     i.querySelector('.faq-answer').setAttribute('aria-hidden', 'true');
+                        // });
+                        
+                        q.setAttribute('aria-expanded', !isExpanded);
+                        a.setAttribute('aria-hidden', isExpanded);
+                    });
+                });
+            };
+            
+            const showToast = (message) => {
+                const toast = document.getElementById('toast-notification');
+                const msgEl = document.getElementById('toast-message');
+                if (!toast || !msgEl) return;
+                
+                msgEl.textContent = message;
+                toast.classList.add('is-visible');
+                
+                setTimeout(() => {
+                    toast.classList.remove('is-visible');
+                }, 3000);
+            };
+
+            const init = () => {
+                initTheme();
+                initMobileNav();
+                initFaq();
+                
+                // Aktuelles Jahr im Footer
+                document.getElementById('current-year').textContent = new Date().getFullYear();
+            };
+            
+            return { init, showToast };
+        })();
+        
+        // ---------------------------------------------------------------
+        // 3. Scroll: Scroll-Interaktionen-Modul
+        // ---------------------------------------------------------------
+        const Scroll = (() => {
+            const header = document.getElementById('main-header');
+            const progressBar = document.getElementById('scroll-progress-bar-inner');
+            const progressContainer = document.getElementById('scroll-progress-bar');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('main > .section[id]');
+            const stickyCtaMobile = document.getElementById('sticky-cta-mobile');
+            const stickyCtaDesktop = document.getElementById('sticky-cta-desktop');
+            const whatsappFab = document.getElementById('whatsapp-fab');
+
+            const onScroll = () => {
+                const scrollY = window.scrollY;
+                
+                // 1. Header-Stil
+                header.classList.toggle('is-scrolled', scrollY > 50);
+                
+                // 2. Scroll-Fortschritt
+                const docHeight = document.documentElement.scrollHeight;
+                const winHeight = window.innerHeight;
+                const maxScroll = docHeight - winHeight;
+                const percent = (scrollY / maxScroll) * 100;
+                
+                progressBar.style.width = `${percent}%`;
+                progressContainer.setAttribute('aria-valuenow', Math.round(percent));
+            };
+            
+            const initScrollSpy = () => {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                            const id = entry.target.getAttribute('id');
+                            navLinks.forEach(link => {
+                                link.classList.toggle('is-active', link.getAttribute('href') === `#${id}`);
+                            });
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                sections.forEach(section => observer.observe(section));
+            };
+            
+            const initRevealAnimations = () => {
+                const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                if (reducedMotion) {
+                    // Animationen deaktivieren und Elemente sofort sichtbar machen
+                    document.querySelectorAll('.reveal-fade-up, .benefit-card').forEach(el => {
+                        el.classList.add('is-visible');
+                    });
+                    return;
+                }
+
+                const observer = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const delay = entry.target.style.getPropertyValue('--delay') || '0ms';
+                            setTimeout(() => {
+                                entry.target.classList.add('is-visible');
+                            }, parseInt(delay));
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+                
+                document.querySelectorAll('.reveal-fade-up, .benefit-card').forEach(el => {
+                    observer.observe(el);
+                });
+            };
+            
+            const initStickyCtas = () => {
+                const heroSection = document.getElementById('hero');
+                const footer = document.querySelector('.main-footer');
+                
+                const observer = new IntersectionObserver(([entry]) => {
+                    // Sichtbar, wenn Hero NICHT im Viewport ist
+                    const isVisible = !entry.isIntersecting;
+                    stickyCtaMobile.classList.toggle('is-visible', isVisible);
+                    stickyCtaDesktop.classList.toggle('is-visible', isVisible);
+                    whatsappFab.classList.toggle('is-visible', isVisible);
+                }, { threshold: 0.1 }); // 10% des Heros
+                
+                if (heroSection) {
+                    observer.observe(heroSection);
+                }
+                
+                // Verstecken, wenn Footer erreicht
+                const footerObserver = new IntersectionObserver(([entry]) => {
+                    if (entry.isIntersecting) {
+                        stickyCtaMobile.classList.remove('is-visible');
+                        stickyCtaDesktop.classList.remove('is-visible');
+                    } else if (!heroSection.isIntersecting) {
+                        // Wieder einblenden, wenn Footer verlassen wird (und Hero noch weg ist)
+                         stickyCtaMobile.classList.add('is-visible');
+                         stickyCtaDesktop.classList.add('is-visible');
+                    }
+                }, { threshold: 0.1 });
+                
+                if (footer) {
+                    footerObserver.observe(footer);
+                }
+            };
+
+            const init = () => {
+                window.addEventListener('scroll', onScroll);
+                onScroll(); // Initialen Status setzen
+                initScrollSpy();
+                initRevealAnimations();
+                initStickyCtas();
+            };
+            
+            return { init };
+        })();
+        
+        // ---------------------------------------------------------------
+        // 4. Testimonials-Modul
+        // ---------------------------------------------------------------
+        const Testimonials = (() => {
+            const track = document.getElementById('testimonial-track');
+            const nextBtn = document.getElementById('testimonial-next');
+            const prevBtn = document.getElementById('testimonial-prev');
+            let cards;
+
+            const updateButtons = () => {
+                if (!track) return;
+                const scrollLeft = track.scrollLeft;
+                const scrollWidth = track.scrollWidth;
+                const clientWidth = track.clientWidth;
+                
+                prevBtn.disabled = scrollLeft < 10;
+                nextBtn.disabled = scrollLeft > (scrollWidth - clientWidth - 10);
+            };
+
+            const scrollBy = (direction) => {
+                if (!track) return;
+                // Scrolle um 1 Karte (Basisbreite + Gap)
+                const cardWidth = cards[0]?.offsetWidth || 300;
+                const gap = parseFloat(getComputedStyle(track).gap) || 24;
+                const amount = (cardWidth + gap) * direction;
+                
+                track.scrollBy({ left: amount, behavior: 'smooth' });
+            };
+
+            const init = () => {
+                if (!track || !nextBtn || !prevBtn) return;
+                cards = track.querySelectorAll('.testimonial-card');
+                
+                nextBtn.addEventListener('click', () => scrollBy(1));
+                prevBtn.addEventListener('click', () => scrollBy(-1));
+                track.addEventListener('scroll', updateButtons);
+                
+                // Bei Resize neu berechnen
+                new ResizeObserver(updateButtons).observe(track);
+                
+                updateButtons();
+            };
+
+            return { init };
+        })();
+        
+        // ---------------------------------------------------------------
+        // 5. Forms & Utils Modul
+        // ---------------------------------------------------------------
+        const Forms = (() => {
+            
+            const initFormspree = () => {
+                const form = document.getElementById('contact-form');
+                if (!form) return;
+                
+                form.addEventListener("submit", async (e) => {
+                    e.preventDefault();
+                    const statusEl = document.getElementById('form-status');
+                    const data = new FormData(form);
+                    
+                    try {
+                        const response = await fetch(form.action, {
+                            method: form.method,
+                            body: data,
+                            headers: { 'Accept': 'application/json' }
+                        });
+                        
+                        if (response.ok) {
+                            statusEl.textContent = i18n.get('contact.form.success');
+                            statusEl.className = 'form-status is-success';
+                            form.reset();
+                            Analytics.track('form_success_contact');
+                        } else {
+                            throw new Error('Network response was not ok.');
+                        }
+                    } catch (error) {
+                        statusEl.textContent = i18n.get('contact.form.error');
+                        statusEl.className = 'form-status is-error';
+                        Analytics.track('form_error_contact');
+                    }
+                });
+            };
+            
+            const initCopyToClipboard = () => {
+                document.querySelectorAll('.copy-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const textToCopy = btn.dataset.copy;
+                        
+                        if (navigator.clipboard) {
+                            navigator.clipboard.writeText(textToCopy).then(() => {
+                                const originalText = btn.textContent;
+                                btn.textContent = i18n.get('contact.copied');
+                                UI.showToast(i18n.get('contact.copied'));
+                                Analytics.track('copy_to_clipboard_email');
+                                setTimeout(() => {
+                                    btn.textContent = originalText;
+                                }, 2000);
+                            }).catch(err => console.error('Failed to copy: ', err));
+                        } else {
+                            // Fallback für ältere Browser (weniger sicher)
+                            try {
+                                const textArea = document.createElement('textarea');
+                                textArea.value = textToCopy;
+                                document.body.appendChild(textArea);
+                                textArea.focus();
+                                textArea.select();
+                                document.execCommand('copy');
+                                document.body.removeChild(textArea);
+                                UI.showToast(i18n.get('contact.copied'));
+                                Analytics.track('copy_to_clipboard_email');
+                            } catch (err) {
+                                console.error('Fallback copy failed: ', err);
+                            }
+                        }
+                    });
+                });
+            };
+            
+            const init = () => {
+                initFormspree();
+                initCopyToClipboard();
+            };
+
+            return { init };
+        })();
+        
+        // ---------------------------------------------------------------
+        // 6. Analytics-Modul (Simulation)
+        // ---------------------------------------------------------------
+        const Analytics = (() => {
+            // Platzhalter-Funktion. Ersetze dies mit Plausible, Fathom, etc.
+            const track = (eventName, props = {}) => {
+                console.log(`[Analytics Event]: ${eventName}`, props);
+                
+                // if (window.plausible) {
+                //     window.plausible(eventName, { props });
+                // }
+            };
+
+            const init = () => {
+                document.body.addEventListener('click', (e) => {
+                    const el = e.target.closest('[data-analytics-event]');
+                    if (el) {
+                        track(el.dataset.analyticsEvent);
+                    }
+                });
+            };
+
+            return { init, track };
+        })();
+        
+        // ---------------------------------------------------------------
+        // 7. App-Initialisierung
+        // ---------------------------------------------------------------
+        document.addEventListener('DOMContentLoaded', () => {
+            i18n.init();
+            UI.init();
+            Scroll.init();
+            Testimonials.init();
+            Forms.init();
+            Analytics.init();
+        });
+
+    </script>
+</body>
+</html>
+
+
