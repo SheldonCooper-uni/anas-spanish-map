@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ana's Spanish Map - Your Journey to Fluency</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <title>Ana's Spanish Map - Your Journey to Spanish Fluency 🗺️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- CSS VARIABLEN & GRUNDLAGEN --- */
+        /* === VARIABLEN === */
         :root {
-            --color-primary: #D27D2D; /* Terrakotta/Orange */
-            --color-secondary: #87CEEB; /* Helles Blau */
-            --color-bg: #FDFBF7; /* Warmes Beige/Weiß */
-            --color-text: #333333;
-            --color-card: #FFFFFF;
-            --color-accent: #E9967A;
-            --transition: all 0.3s ease;
+            --primary: #D27D2D;
+            --secondary: #87CEEB;
+            --bg: #FDFBF7;
+            --text: #333;
+            --card: #FFF;
+            --accent: #E9967A;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
@@ -25,81 +25,113 @@
         }
 
         body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: var(--color-bg);
-            color: var(--color-text);
+            font-family: 'Montserrat', sans-serif;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
-            padding-bottom: 80px; /* Platz für sticky footer */
+            padding-bottom: 100px;
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Montserrat', sans-serif;
-            color: #2c3e50;
+        html {
+            scroll-behavior: smooth;
         }
 
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
 
-        /* --- NAVIGATION --- */
+        /* === NAVIGATION === */
         header {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
             z-index: 1000;
+            transition: var(--transition);
         }
 
         .logo {
             font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--color-primary);
+            font-size: 1.6rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         nav ul {
             display: flex;
-            gap: 20px;
+            gap: 25px;
+            list-style: none;
         }
 
         nav a {
             font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text);
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
             transition: var(--transition);
         }
 
-        nav a:hover { color: var(--color-primary); }
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
 
         .lang-switch {
             display: flex;
-            gap: 10px;
+            gap: 8px;
         }
 
         .lang-btn {
-            border: 1px solid var(--color-primary);
+            border: 2px solid var(--primary);
             background: transparent;
-            padding: 5px 10px;
-            border-radius: 20px;
+            padding: 6px 14px;
+            border-radius: 25px;
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 700;
+            font-size: 0.85rem;
             transition: var(--transition);
+            color: var(--primary);
         }
 
-        .lang-btn.active, .lang-btn:hover {
-            background: var(--color-primary);
+        .lang-btn.active,
+        .lang-btn:hover {
+            background: var(--primary);
             color: white;
+            transform: translateY(-2px);
         }
 
-        /* --- HERO SECTION --- */
+        /* === HERO === */
         .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('ana web img/hero-peru.jpg.jpg');
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('images/hero-peru.jpg');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -109,52 +141,82 @@
             position: relative;
         }
 
+        .hero::before {
+            content: '¡';
+            position: absolute;
+            font-size: 15rem;
+            opacity: 0.05;
+            top: 10%;
+            left: 10%;
+            font-weight: bold;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '¿?';
+            position: absolute;
+            font-size: 12rem;
+            opacity: 0.05;
+            bottom: 15%;
+            right: 8%;
+            font-weight: bold;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
         .hero-content {
-            max-width: 800px;
-            animation: fadeInUp 1.2s ease-out;
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+            z-index: 1;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
             color: white;
+            line-height: 1.2;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            line-height: 1.6;
         }
 
         .btn {
             display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--color-primary);
+            padding: 14px 35px;
+            background: var(--primary);
             color: white;
             border-radius: 50px;
-            font-weight: bold;
+            font-weight: 700;
+            text-decoration: none;
             transition: var(--transition);
-            border: 2px solid var(--color-primary);
+            border: 3px solid var(--primary);
             cursor: pointer;
             margin: 10px;
+            font-size: 1rem;
         }
 
         .btn:hover {
-            transform: scale(1.05);
-            background-color: white;
-            color: var(--color-primary);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transform: scale(1.08) translateY(-3px);
+            box-shadow: 0 10px 25px rgba(210, 125, 45, 0.4);
         }
 
         .btn-ghost {
             background: transparent;
-            border: 2px solid white;
+            border: 3px solid white;
         }
 
         .btn-ghost:hover {
             background: white;
-            color: var(--color-primary);
+            color: var(--primary);
             border-color: white;
         }
 
@@ -163,77 +225,99 @@
             border-color: #25D366;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
         .btn-whatsapp:hover {
             background: #20BA5A;
-            color: white;
-            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
         }
 
-        /* --- ALLGEMEINE SEKTIONEN --- */
+        /* === SECTIONS === */
         section {
-            padding: 80px 10%;
+            padding: 100px 8%;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 3rem;
-            color: var(--color-primary);
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            width: 100%;
         }
 
-        /* --- ABOUT ANA --- */
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* === ABOUT === */
         .about-container {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
             align-items: center;
-            gap: 50px;
-            flex-wrap: wrap;
         }
 
         .about-text {
-            flex: 1;
-            min-width: 300px;
+            font-size: 1.1rem;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
         }
 
         .about-img {
-            flex: 1;
-            min-width: 300px;
             position: relative;
         }
 
         .about-img img {
             width: 100%;
-            border-radius: 20px;
-            box-shadow: 10px 10px 0px var(--color-secondary);
+            border-radius: 25px;
+            box-shadow: 15px 15px 0 var(--secondary);
+            transition: var(--transition);
+        }
+
+        .about-img:hover img {
+            transform: translate(-5px, -5px);
         }
 
         .badge {
-            background: var(--color-secondary);
+            background: var(--secondary);
             color: white;
-            padding: 5px 15px;
-            border-radius: 15px;
-            font-size: 0.9rem;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.95rem;
             display: inline-block;
-            margin-top: 10px;
+            margin-top: 15px;
+            font-weight: 600;
         }
 
-        /* --- YOUTUBE VIDEO SECTION --- */
+        /* === VIDEO === */
         .video-section {
-            background: #f4ece6;
+            background: linear-gradient(135deg, #f4ece6 0%, #fdfbf7 100%);
             text-align: center;
         }
 
         .video-container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-radius: 25px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.2);
         }
 
         .video-container iframe {
@@ -242,194 +326,342 @@
             left: 0;
             width: 100%;
             height: 100%;
+            border: 0;
         }
 
-        /* --- METHODE (IMMERSION) --- */
+        /* === METHOD === */
         .method {
-            background-color: #f4ece6; /* Leichtes Beige */
+            background: linear-gradient(135deg, #f4ece6 0%, #e9dfd5 100%);
+        }
+
+        .method-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .method-desc {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            margin-bottom: 40px;
         }
 
         .benefits-list {
-            max-width: 600px;
+            text-align: left;
+            max-width: 700px;
             margin: 0 auto;
         }
 
         .benefits-list li {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             position: relative;
-            padding-left: 30px;
-            opacity: 0; /* Für Animation */
-            transform: translateY(20px);
+            padding-left: 40px;
+            font-size: 1.1rem;
+            opacity: 0;
+            transform: translateX(-30px);
             transition: var(--transition);
         }
 
         .benefits-list li::before {
-            content: "✔";
-            color: var(--color-primary);
+            content: "✓";
             position: absolute;
             left: 0;
+            color: white;
+            background: var(--primary);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-weight: bold;
         }
 
         .benefits-list li.visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateX(0);
         }
 
-        /* --- INTERACTIVE QUIZ --- */
+        .method-close {
+            margin-top: 40px;
+            font-weight: 700;
+            font-style: italic;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        /* === QUIZ === */
         .quiz-section {
-            background: var(--color-secondary);
+            background: linear-gradient(135deg, var(--secondary) 0%, #6bb5d8 100%);
             color: white;
             text-align: center;
-            padding: 60px 20px;
+            padding: 80px 20px;
+            position: relative;
             overflow: hidden;
+        }
+
+        .quiz-section h3 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: white;
         }
 
         .quiz-container {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .quiz-card {
             background: white;
-            color: var(--color-text);
-            padding: 20px;
-            border-radius: 15px;
-            width: 250px;
+            color: var(--text);
+            padding: 30px;
+            border-radius: 20px;
+            width: 280px;
             cursor: pointer;
             transition: var(--transition);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
 
         .quiz-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .quiz-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
         }
 
         .quiz-answer {
             display: none;
-            color: var(--color-primary);
-            font-weight: bold;
-            margin-top: 10px;
-            font-size: 1.3rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-top: 15px;
+            font-size: 1.6rem;
+            animation: bounceIn 0.5s;
         }
 
         .quiz-card:hover .quiz-answer {
             display: block;
-            animation: fadeIn 0.5s;
         }
 
-        /* --- PERU CULTURE (BONUS) --- */
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* === CULTURE === */
         .culture-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 0;
-            padding: 0; /* Full width split */
+            padding: 0;
+            max-width: 100%;
         }
 
         .culture-img {
-            height: 500px;
+            height: 550px;
             background-size: cover;
             background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .culture-img::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, rgba(210, 125, 45, 0.1), transparent);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .culture-img:hover::after {
+            opacity: 1;
         }
 
         .culture-text {
-            padding: 60px;
-            background: #fff;
+            padding: 80px;
+            background: white;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
         .culture-text h2 {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            font-size: 2.2rem;
+            color: var(--primary);
         }
 
-        /* --- PRICING / RUTAS --- */
+        .culture-text p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+        }
+
+        /* === PRICING === */
+        .pricing-section {
+            background: linear-gradient(135deg, #fdfbf7 0%, #f9f5f0 100%);
+        }
+
         .pricing-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
         }
 
         .pricing-card {
             background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border-top: 5px solid var(--color-primary);
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border-top: 6px solid var(--primary);
             transition: var(--transition);
             position: relative;
-            overflow: hidden;
+        }
+
+        .pricing-card:nth-child(2) {
+            border-top-color: var(--secondary);
+            transform: scale(1.05);
+        }
+
+        .pricing-card:nth-child(3) {
+            border-top-color: var(--accent);
         }
 
         .pricing-card:hover {
-            transform: scale(1.03);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .pricing-card:nth-child(2) h3 {
+            color: var(--secondary);
+        }
+
+        .pricing-card:nth-child(3) h3 {
+            color: var(--accent);
+        }
+
+        .pricing-subtitle {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .price-tag {
+            font-size: 2.5rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin: 25px 0;
+        }
+
+        .pricing-card:nth-child(2) .price-tag {
+            color: var(--secondary);
+        }
+
+        .pricing-card:nth-child(3) .price-tag {
+            color: var(--accent);
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1.2rem;
+            margin-right: 10px;
         }
 
         .pricing-card ul {
             list-style: none;
-            padding: 0;
+            margin: 25px 0;
         }
 
         .pricing-card ul li {
-            padding: 8px 0;
-            padding-left: 25px;
+            padding: 12px 0;
+            padding-left: 35px;
             position: relative;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         .pricing-card ul li::before {
             content: "→";
             position: absolute;
             left: 0;
-            color: var(--color-primary);
-            font-weight: bold;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.2rem;
         }
 
-        .price-tag {
-            font-size: 2rem;
-            color: var(--color-primary);
-            font-weight: bold;
-            margin: 20px 0;
+        .pricing-card:nth-child(2) ul li::before {
+            color: var(--secondary);
         }
 
-        .old-price {
-            text-decoration: line-through;
-            color: #999;
-            font-size: 1rem;
+        .pricing-card:nth-child(3) ul li::before {
+            color: var(--accent);
         }
 
-        /* --- TESTIMONIALS --- */
+        /* === TESTIMONIALS === */
         .testimonials {
-            background-color: var(--color-bg);
-            text-align: center;
+            background: var(--bg);
         }
 
         .testimonial-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
 
         .review-card {
             background: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            font-style: italic;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
             transition: var(--transition);
+            position: relative;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .review-card::before {
+            content: '"';
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--secondary);
+            opacity: 0.2;
+            font-family: Georgia, serif;
         }
 
         .review-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+        }
+
+        .review-card p {
+            font-style: italic;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
         }
 
         .review-author {
-            margin-top: 15px;
-            font-weight: bold;
-            color: var(--color-primary);
+            margin-top: 20px;
+            font-weight: 700;
+            color: var(--primary);
             font-style: normal;
         }
 
@@ -439,108 +671,154 @@
             margin-top: 5px;
         }
 
-        /* --- FAQ --- */
+        /* === FAQ === */
+        .faq-section {
+            background: linear-gradient(135deg, #f9f5f0 0%, #fdfbf7 100%);
+        }
+
         .accordion {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
         .accordion-item {
             background: white;
-            margin-bottom: 10px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-bottom: 15px;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
             overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .accordion-item:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
 
         .accordion-header {
-            padding: 20px;
+            padding: 25px 30px;
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 700;
             display: flex;
             justify-content: space-between;
+            align-items: center;
             transition: var(--transition);
+            font-size: 1.05rem;
         }
 
         .accordion-header:hover {
             background: #f9f9f9;
+            color: var(--primary);
+        }
+
+        .accordion-icon {
+            font-size: 1.5rem;
+            transition: var(--transition);
+            color: var(--primary);
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(45deg);
         }
 
         .accordion-content {
-            padding: 0 20px;
+            padding: 0 30px;
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease;
         }
 
         .accordion-content p {
-            padding-bottom: 20px;
+            padding-bottom: 25px;
+            line-height: 1.7;
         }
 
-        /* --- CONTACT & FOOTER --- */
+        /* === CONTACT === */
         .contact {
             text-align: center;
             background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
             color: white;
+            position: relative;
+            overflow: hidden;
         }
 
-        .contact h2 { color: white; }
+        .contact::before {
+            content: '🗺️';
+            position: absolute;
+            font-size: 20rem;
+            opacity: 0.03;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .contact h2 {
+            color: white;
+            font-size: 2.8rem;
+        }
 
         .contact-info {
-            margin-top: 2rem;
-            font-size: 1.1rem;
+            margin-top: 40px;
+            font-size: 1.15rem;
         }
 
         .contact-info p {
-            margin: 10px 0;
+            margin: 15px 0;
+        }
+
+        .contact-info strong {
+            color: var(--secondary);
         }
 
         .social-icons {
-            margin-top: 20px;
+            margin-top: 30px;
             display: flex;
             justify-content: center;
-            gap: 15px;
-            font-size: 1.5rem;
+            gap: 20px;
+            font-size: 2rem;
         }
 
         .social-icons a {
             transition: var(--transition);
+            display: inline-block;
         }
 
         .social-icons a:hover {
-            transform: scale(1.2);
-            color: var(--color-secondary);
+            transform: scale(1.3) rotate(10deg);
         }
 
-        /* --- STICKY FOOTER MIT BLUR --- */
+        /* === STICKY FOOTER === */
         footer {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(26, 37, 47, 0.9);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: rgba(26, 37, 47, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             color: #bdc3c7;
-            text-align: center;
-            padding: 15px 20px;
+            padding: 18px 5%;
             font-size: 0.9rem;
             z-index: 999;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 -3px 20px rgba(0,0,0,0.2);
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
+            border-top: 2px solid rgba(135, 206, 235, 0.3);
         }
 
         .footer-left {
             flex: 1;
             text-align: left;
+            font-weight: 700;
+            color: white;
         }
 
         .footer-center {
             flex: 1;
             text-align: center;
+            font-style: italic;
+            color: var(--secondary);
         }
 
         .footer-right {
@@ -548,71 +826,132 @@
             text-align: right;
             display: flex;
             justify-content: flex-end;
-            gap: 10px;
+            gap: 15px;
         }
 
         .footer-social a {
             color: #bdc3c7;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             transition: var(--transition);
         }
 
         .footer-social a:hover {
-            color: var(--color-secondary);
+            color: var(--secondary);
+            transform: translateY(-3px);
         }
 
-        /* --- ANIMATION CLASSES --- */
+        /* === ANIMATIONS === */
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .hidden {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
         }
 
-        .hidden { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-        .show { opacity: 1; transform: translateY(0); }
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-        /* Responsive */
+        /* === RESPONSIVE === */
+        @media (max-width: 1024px) {
+            .about-container,
+            .culture-section {
+                grid-template-columns: 1fr;
+            }
+
+            .culture-img {
+                height: 400px;
+            }
+
+            .culture-text {
+                padding: 50px;
+            }
+        }
+
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
-                gap: 10px;
-                padding: 1rem 3%;
+                gap: 15px;
+                padding: 1rem 4%;
             }
+
             nav ul {
-                gap: 10px;
-                font-size: 0.9rem;
                 flex-wrap: wrap;
                 justify-content: center;
+                gap: 15px;
+                font-size: 0.9rem;
             }
-            .hero h1 { font-size: 2rem; }
-            .hero p { font-size: 1rem; }
-            .culture-section { grid-template-columns: 1fr; }
-            .culture-img { height: 300px; }
-            section { padding: 60px 5%; }
-            .about-container { flex-direction: column; }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-img img {
+                box-shadow: 10px 10px 0 var(--secondary);
+            }
+
+            .culture-text {
+                padding: 40px 30px;
+            }
+
+            .pricing-container {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card:nth-child(2) {
+                transform: scale(1);
+            }
+
             footer {
                 flex-direction: column;
-                gap: 10px;
-                padding: 15px 10px;
+                gap: 15px;
+                padding: 20px;
+                text-align: center;
             }
-            .footer-left, .footer-center, .footer-right {
+
+            .footer-left,
+            .footer-center,
+            .footer-right {
                 text-align: center;
                 justify-content: center;
             }
+
             body {
-                padding-bottom: 120px;
+                padding-bottom: 150px;
             }
         }
     </style>
 </head>
 <body>
 
+    <!-- NAVIGATION -->
     <header>
-        <div class="logo">Ana's Spanish Map</div>
+        <div class="logo">
+            🗺️ Ana's Spanish Map
+        </div>
         <nav>
             <ul>
                 <li><a href="#about" data-i18n="nav_about">Über mich</a></li>
@@ -629,6 +968,7 @@
         </div>
     </header>
 
+    <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-content">
             <h1 data-i18n="hero_title">Dein Wegweiser zur Spanisch-Flüssigkeit.</h1>
@@ -638,95 +978,114 @@
         </div>
     </section>
 
+    <!-- ABOUT SECTION -->
     <section id="about" class="hidden">
         <div class="about-container">
             <div class="about-text">
-                <h2 class="section-title" data-i18n="about_title">Hola, soy Ana</h2>
-                <p data-i18n="about_text">Hallo, ich bin Ana, zertifizierte Spanischlehrerin mit über 6 Jahren Erfahrung im Unterrichten von Jugendlichen und Erwachsenen. Meine Kurse sind dynamisch und persönlich: Du lernst Grammatik im Kontext, erweiterst deinen Wortschatz und gewinnst vor allem Sicherheit in realen Situationen. Ich glaube an enges, klares und motivierendes Lernen, bei dem jede Klasse ein Schritt zu deinem Ziel ist, sicher Spanisch zu sprechen.</p>
-                <div class="badge">Online • GMT-5 (Peru) • A1–B2</div>
+                <h2 class="section-title" data-i18n="about_title">Hola, soy Ana 👋</h2>
+                <p data-i18n="about_text">
+                    Hallo, ich bin Ana, zertifizierte Spanischlehrerin mit über 6 Jahren Erfahrung im Unterrichten von Jugendlichen und Erwachsenen. Meine Kurse sind dynamisch und persönlich: Du lernst Grammatik im Kontext, erweiterst deinen Wortschatz und gewinnst vor allem Sicherheit in realen Situationen. Ich glaube an enges, klares und motivierendes Lernen, bei dem jede Klasse ein Schritt zu deinem Ziel ist, sicher Spanisch zu sprechen.
+                </p>
+                <div class="badge">📍 Online • GMT-5 (Perú) • A1–B2</div>
             </div>
             <div class="about-img">
-                <img src="ana web img/ana-portrait.jpg.jpg" alt="Ana Spanish Teacher">
+                <img src="images/ana-portrait.jpg" alt="Ana - Spanish Teacher from Peru">
             </div>
         </div>
     </section>
 
-    <!-- YouTube Video Section -->
+    <!-- VIDEO SECTION -->
     <section class="video-section hidden">
-        <h2 class="section-title" data-i18n="video_title">Lerne mich kennen</h2>
-        <p style="margin-bottom: 30px;" data-i18n="video_subtitle">Schau dir mein Vorstellungsvideo an und erfahre mehr über meine Methode!</p>
+        <h2 class="section-title" data-i18n="video_title">Lerne mich kennen 🎥</h2>
+        <p style="margin-bottom: 40px; font-size: 1.1rem;" data-i18n="video_subtitle">
+            Schau dir mein Vorstellungsvideo an und erfahre mehr über meine Methode!
+        </p>
         <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/dcZf2LLwPew"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
+            <iframe
+                src="https://www.youtube.com/embed/dcZf2LLwPew"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
             </iframe>
         </div>
     </section>
 
+    <!-- METHOD SECTION -->
     <section id="method" class="method hidden">
-        <h2 class="section-title" data-i18n="method_title">Meine Methode: sprachliche Immersion</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto 30px auto;" data-i18n="method_desc">
-            Immersion ist das Herzstück meiner Methode. Sprache ist hier kein Schulfach, sondern ein lebendiges Umfeld. Vom ersten Tag an ist alles darauf ausgelegt, Spanisch durch Erfahrung zu lernen.
-        </p>
-        <ul class="benefits-list">
-            <li data-i18n="benefit_1">Verbessert die Flüssigkeit und Sicherheit beim Sprechen.</li>
-            <li data-i18n="benefit_2">Fördert das Hörverständnis in Alltagssituationen.</li>
-            <li data-i18n="benefit_3">Erwerbe Vokabeln und Strukturen praxisnah.</li>
-            <li data-i18n="benefit_4">Verstehe Spanisch so, wie es im echten Leben gesprochen wird.</li>
-        </ul>
-        <p style="text-align: center; margin-top: 30px; font-weight: bold; font-style: italic;" data-i18n="method_close">
-            "Lerne Spanisch nicht nur – fühle es, genieße es und mach es zu deinem Eigen."
-        </p>
+        <div class="method-content">
+            <h2 class="section-title" data-i18n="method_title">Meine Methode: Sprachliche Immersion</h2>
+            <p class="method-desc" data-i18n="method_desc">
+                Immersion ist das Herzstück meiner Methode. Sprache ist hier kein Schulfach, sondern ein lebendiges Umfeld. Vom ersten Tag an ist alles darauf ausgelegt, Spanisch durch Erfahrung zu lernen – durch Zuhören, Sprechen, Verstehen und Kreieren, bis es natürlich fließt.
+            </p>
+            <ul class="benefits-list">
+                <li data-i18n="benefit_1">Verbessert die Flüssigkeit und Sicherheit beim Sprechen</li>
+                <li data-i18n="benefit_2">Fördert das Hörverständnis in Alltagssituationen</li>
+                <li data-i18n="benefit_3">Erwerbe Vokabeln und Strukturen praxisnah und bedeutungsvoll</li>
+                <li data-i18n="benefit_4">Verstehe Spanisch so, wie es im echten Leben gesprochen wird</li>
+            </ul>
+            <p class="method-close" data-i18n="method_close">
+                "Lerne Spanisch nicht nur – fühle es, genieße es und mach es zu deinem Eigen."
+            </p>
+        </div>
     </section>
 
+    <!-- QUIZ SECTION -->
     <div class="quiz-section">
-        <h3 style="margin-bottom: 20px;" data-i18n="quiz_title">Kleines Spanisch Quiz? (Hover/Tap)</h3>
+        <h3 data-i18n="quiz_title">🎯 Kleines Spanisch-Quiz? (Hover/Tap)</h3>
         <div class="quiz-container">
             <div class="quiz-card">
-                <div data-i18n="q1">Wie sagt man "Abenteuer"?</div>
+                <div class="quiz-question" data-i18n="q1">Wie sagt man "Abenteuer"?</div>
                 <div class="quiz-answer">¡Aventura!</div>
             </div>
             <div class="quiz-card">
-                <div data-i18n="q2">Wie sagt man "Reise"?</div>
+                <div class="quiz-question" data-i18n="q2">Wie sagt man "Reise"?</div>
                 <div class="quiz-answer">¡Viaje!</div>
             </div>
             <div class="quiz-card">
-                <div data-i18n="q3">Wie sagt man "Ziel"?</div>
+                <div class="quiz-question" data-i18n="q3">Wie sagt man "Ziel"?</div>
                 <div class="quiz-answer">¡Destino!</div>
             </div>
             <div class="quiz-card">
-                <div data-i18n="q4">Wie sagt man "Freundschaft"?</div>
+                <div class="quiz-question" data-i18n="q4">Wie sagt man "Freundschaft"?</div>
                 <div class="quiz-answer">¡Amistad!</div>
             </div>
         </div>
     </div>
 
+    <!-- CULTURE SECTION -->
     <section class="culture-section hidden">
-        <div class="culture-img" style="background-image: url('ana web img/culture-stairs.jpg.jpg');"></div>
+        <div class="culture-img" style="background-image: url('images/culture-stairs.jpg');"></div>
         <div class="culture-text">
-            <h2 data-i18n="culture_title">Mehr als nur Sprache: Erlebe Peru</h2>
+            <h2 data-i18n="culture_title">🇵🇪 Mehr als nur Sprache: Erlebe Peru</h2>
             <p data-i18n="culture_text">
                 Sprache und Kultur sind untrennbar verbunden. In meinen Kursen tauchen wir auch in die faszinierende Welt Lateinamerikas ein, insbesondere Peru. Von den Farben der Anden bis zur Herzlichkeit der Menschen – du lernst nicht nur Vokabeln, sondern verstehst den Kontext, die Redewendungen und das Lebensgefühl.
             </p>
             <br>
-            <p data-i18n="culture_sub">Lerne Spanisch mit dem Herzen Perus. 🇵🇪</p>
+            <p style="font-weight: 700; font-size: 1.2rem;" data-i18n="culture_sub">
+                Lerne Spanisch mit dem Herzen Perus. 💙
+            </p>
         </div>
         <div class="culture-text" style="background: #fdfbf7;">
-            <h2 data-i18n="church_title">Architektur & Geschichte</h2>
-            <p data-i18n="church_text">Jede Stadt erzählt eine Geschichte. Wir nutzen Bilder, virtuelle Reisen und kulturelle Anekdoten, um den Unterricht lebendig zu machen. So bleibt das Gelernte besser im Gedächtnis. Peru ist ein Land voller Traditionen, Geschichte und lebendiger Kultur – erlebe es in jeder Stunde!</p>
+            <h2 data-i18n="church_title">⛪ Architektur & Geschichte</h2>
+            <p data-i18n="church_text">
+                Jede Stadt erzählt eine Geschichte. Wir nutzen Bilder, virtuelle Reisen und kulturelle Anekdoten, um den Unterricht lebendig zu machen. So bleibt das Gelernte besser im Gedächtnis. Peru ist ein Land voller Traditionen, Geschichte und lebendiger Kultur – erlebe es in jeder Stunde!
+            </p>
         </div>
-        <div class="culture-img" style="background-image: url('ana web img/church.jpg.jpg');"></div>
+        <div class="culture-img" style="background-image: url('images/church.jpg');"></div>
     </section>
 
-    <section id="pricing" class="hidden">
-        <h2 class="section-title" data-i18n="price_title">Wähle deine Route</h2>
+    <!-- PRICING SECTION -->
+    <section id="pricing" class="pricing-section hidden">
+        <h2 class="section-title" data-i18n="price_title">🗺️ Wähle deine Route</h2>
         <div class="pricing-container">
+
             <!-- Pack 1 -->
             <div class="pricing-card">
                 <h3 data-i18n="pack1_name">La Ruta Maestra</h3>
-                <p style="font-size:0.9rem; color:#666;" data-i18n="pack1_sub">16 Haltestellen, ein Ziel: Beherrsche die Karte des Spanischen.</p>
-                <div class="price-tag"><span class="old-price">$320</span> $288</div>
+                <p class="pricing-subtitle" data-i18n="pack1_sub">16 paradas, un solo destino: dominar el mapa del español.</p>
+                <div class="price-tag">
+                    <span class="old-price">$320</span>
+                    $288
+                </div>
                 <ul>
                     <li data-i18n="pack1_feat1">~16 Stunden à 50 Minuten</li>
                     <li data-i18n="pack1_feat2">Voll personalisierter Plan nach Niveau & Zielen</li>
@@ -737,16 +1096,19 @@
                     <li data-i18n="pack1_feat7">Flexible Terminwahl, Klassen verfallen nicht</li>
                     <li data-i18n="pack1_feat8">Umbuchung bis 24h vorher</li>
                     <li data-i18n="pack1_feat9">Support per WhatsApp & E-Mail</li>
-                    <li data-i18n="pack1_bonus">✨ Bonus: +3 Extra Klassen bei Abschluss</li>
+                    <li style="color: #D27D2D; font-weight: 700;" data-i18n="pack1_bonus">✨ Bonus: +3 Extra Klassen bei Abschluss</li>
                 </ul>
-                <a href="#contact" class="btn" style="width:100%; margin-top:20px; text-align:center;" data-i18n="btn_book">Route buchen</a>
+                <a href="#contact" class="btn" style="width: 100%; text-align: center;" data-i18n="btn_book">Route buchen</a>
             </div>
 
             <!-- Pack 2 -->
-            <div class="pricing-card" style="border-top-color: var(--color-secondary);">
+            <div class="pricing-card">
                 <h3 data-i18n="pack2_name">Ruta Intermedia</h3>
-                <p style="font-size:0.9rem; color:#666;" data-i18n="pack2_sub">Ein sprachliches Abenteuer, um das nächste Level zu erreichen.</p>
-                <div class="price-tag" style="color:var(--color-secondary)"><span class="old-price">$176</span> $160</div>
+                <p class="pricing-subtitle" data-i18n="pack2_sub">Una aventura lingüística para subir de nivel.</p>
+                <div class="price-tag">
+                    <span class="old-price">$176</span>
+                    $160
+                </div>
                 <ul>
                     <li data-i18n="pack2_feat1">~8 Stunden à 50 Minuten</li>
                     <li data-i18n="pack2_feat2">Dynamische Stunden, angepasst an Niveau & Interessen</li>
@@ -757,14 +1119,17 @@
                     <li data-i18n="pack2_feat7">Gleiche Flexibilität: kein Verfall, Umbuchung 24h</li>
                     <li data-i18n="pack2_feat8">WhatsApp & E-Mail Support</li>
                 </ul>
-                <a href="#contact" class="btn" style="width:100%; margin-top:20px; text-align:center; background-color:var(--color-secondary); border-color:var(--color-secondary);" data-i18n="btn_book">Route buchen</a>
+                <a href="#contact" class="btn" style="width: 100%; text-align: center; background: #87CEEB; border-color: #87CEEB;" data-i18n="btn_book">Route buchen</a>
             </div>
 
             <!-- Pack 3 -->
-            <div class="pricing-card" style="border-top-color: #E9967A;">
+            <div class="pricing-card">
                 <h3 data-i18n="pack3_name">Ruta Exprés</h3>
-                <p style="font-size:0.9rem; color:#666;" data-i18n="pack3_sub">Ein Kompass für alle, die ein konkretes Thema bearbeiten wollen.</p>
-                <div class="price-tag" style="color:#E9967A"><span class="old-price">$112</span> $100</div>
+                <p class="pricing-subtitle" data-i18n="pack3_sub">Una brújula para quien quiere trabajar algo puntual.</p>
+                <div class="price-tag">
+                    <span class="old-price">$112</span>
+                    $100
+                </div>
                 <ul>
                     <li data-i18n="pack3_feat1">4 Stunden à 50 Minuten</li>
                     <li data-i18n="pack3_feat2">Personalisiert, intensiv, fokussiert auf ein konkretes Thema</li>
@@ -774,56 +1139,57 @@
                     <li data-i18n="pack3_feat6">Umbuchung bis 24h vorher</li>
                     <li data-i18n="pack3_feat7">WhatsApp & E-Mail Support</li>
                 </ul>
-                <a href="#contact" class="btn" style="width:100%; margin-top:20px; text-align:center; background-color:#E9967A; border-color:#E9967A;" data-i18n="btn_book">Route buchen</a>
+                <a href="#contact" class="btn" style="width: 100%; text-align: center; background: #E9967A; border-color: #E9967A;" data-i18n="btn_book">Route buchen</a>
             </div>
+
         </div>
     </section>
 
-    <!-- Testimonials Section -->
+    <!-- TESTIMONIALS SECTION -->
     <section id="testimonials" class="testimonials hidden">
-        <h2 class="section-title" data-i18n="testi_title">Was meine Schüler sagen</h2>
+        <h2 class="section-title" data-i18n="testi_title">💬 Was meine Schüler sagen</h2>
         <div class="testimonial-grid">
             <div class="review-card">
-                <p>"Ana spricht klar und ist sehr ermutigend. Ihre Lektionen sind abwechslungsreich (sie verwendet Videos, Übungen, Gespräche, Hausaufgaben...) und interessant. Außerdem ist sie eine sehr sympathische Person."</p>
+                <p>Ana spricht klar und ist sehr ermutigend. Ihre Lektionen sind abwechslungsreich (sie verwendet Videos, Übungen, Gespräche, Hausaufgaben...) und interessant. Außerdem ist sie eine sehr sympathische Person.</p>
                 <div class="review-author">Jon</div>
                 <div class="review-date">September 2025</div>
             </div>
             <div class="review-card">
-                <p>"Der Unterricht war klar, voller Inhalte und hat meinen Wortschatz sehr bereichert."</p>
+                <p>Der Unterricht war klar, voller Inhalte und hat meinen Wortschatz sehr bereichert.</p>
                 <div class="review-author">Rose Jane</div>
                 <div class="review-date">Mai 2025</div>
             </div>
             <div class="review-card">
-                <p>"Toller Lehrer, ich lerne viel!"</p>
+                <p>Toller Lehrer, ich lerne viel!</p>
                 <div class="review-author">Miria</div>
                 <div class="review-date">Mai 2024</div>
             </div>
             <div class="review-card">
-                <p>"Ana ist sehr gut vorbereitet und umgänglich!"</p>
+                <p>Ana ist sehr gut vorbereitet und umgänglich!</p>
                 <div class="review-author">Hulya</div>
                 <div class="review-date">Januar 2024</div>
             </div>
             <div class="review-card">
-                <p>"Anna ist wunderbar, um mit ihr zu arbeiten. Es sind bisher erst zwei Sitzungen gewesen und ich lerne so viel. Ich freue mich darauf, mein Spanisch mit ihr zu perfektionieren."</p>
+                <p>Anna ist wunderbar, um mit ihr zu arbeiten. Es sind bisher erst zwei Sitzungen gewesen und ich lerne so viel. Ich freue mich darauf, mein Spanisch mit ihr zu perfektionieren.</p>
                 <div class="review-author">Cin</div>
                 <div class="review-date">November 2023</div>
             </div>
             <div class="review-card">
-                <p>"Ich genieße meine wöchentlichen Lektionen mit Ana wirklich. Ich liebe das Format des Gesprächs und das Lernen neuer Wörter und Phrasen. Ich habe das Gefühl, dass mir diese Lektionen helfen werden, mein Ziel, Spanisch zu sprechen, zu erreichen! Danke, Ana!"</p>
+                <p>Ich genieße meine wöchentlichen Lektionen mit Ana wirklich. Ich liebe das Format des Gesprächs und das Lernen neuer Wörter und Phrasen. Ich habe das Gefühl, dass mir diese Lektionen helfen werden, mein Ziel, Spanisch zu sprechen, zu erreichen! Danke, Ana!</p>
                 <div class="review-author">Sharon</div>
                 <div class="review-date">Juni 2023</div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section id="faq" class="hidden">
-        <h2 class="section-title">FAQ</h2>
+    <!-- FAQ SECTION -->
+    <section class="faq-section hidden">
+        <h2 class="section-title">❓ FAQ</h2>
         <div class="accordion">
             <div class="accordion-item">
                 <div class="accordion-header" onclick="toggleAccordion(this)">
                     <span data-i18n="faq_q1">Was beinhaltet die kostenlose Probestunde?</span>
-                    <span>+</span>
+                    <span class="accordion-icon">+</span>
                 </div>
                 <div class="accordion-content">
                     <p data-i18n="faq_a1">Eine 30-minütige Sitzung zum Kennenlernen, Niveau testen, Ziele klären und erklären, wie ich dir helfen kann, deine Ziele zu erreichen.</p>
@@ -832,7 +1198,7 @@
             <div class="accordion-item">
                 <div class="accordion-header" onclick="toggleAccordion(this)">
                     <span data-i18n="faq_q2">Wie ist die Stornierungspolitik?</span>
-                    <span>+</span>
+                    <span class="accordion-icon">+</span>
                 </div>
                 <div class="accordion-content">
                     <p data-i18n="faq_a2">Umbuchung oder Absage bis 24 Stunden vorher möglich. Danach fällt die volle Gebühr an.</p>
@@ -841,7 +1207,7 @@
             <div class="accordion-item">
                 <div class="accordion-header" onclick="toggleAccordion(this)">
                     <span data-i18n="faq_q3">Welche Zahlungsmethoden akzeptierst du?</span>
-                    <span>+</span>
+                    <span class="accordion-icon">+</span>
                 </div>
                 <div class="accordion-content">
                     <p data-i18n="faq_a3">Ich akzeptiere Zahlungen über PayPal.</p>
@@ -850,7 +1216,7 @@
             <div class="accordion-item">
                 <div class="accordion-header" onclick="toggleAccordion(this)">
                     <span data-i18n="faq_q4">Wo findet der Unterricht statt?</span>
-                    <span>+</span>
+                    <span class="accordion-icon">+</span>
                 </div>
                 <div class="accordion-content">
                     <p data-i18n="faq_a4">Alle Klassen finden online statt – du brauchst nur eine stabile Internetverbindung und ein Gerät mit Kamera und Mikrofon.</p>
@@ -859,7 +1225,7 @@
             <div class="accordion-item">
                 <div class="accordion-header" onclick="toggleAccordion(this)">
                     <span data-i18n="faq_q5">Für welches Level sind deine Kurse geeignet?</span>
-                    <span>+</span>
+                    <span class="accordion-icon">+</span>
                 </div>
                 <div class="accordion-content">
                     <p data-i18n="faq_a5">Ich unterrichte Erwachsene vom Niveau A1 bis B2. Jeder Kurs wird individuell an dein Level angepasst.</p>
@@ -868,7 +1234,7 @@
             <div class="accordion-item">
                 <div class="accordion-header" onclick="toggleAccordion(this)">
                     <span data-i18n="faq_q6">Verfallen die gebuchten Stunden?</span>
-                    <span>+</span>
+                    <span class="accordion-icon">+</span>
                 </div>
                 <div class="accordion-content">
                     <p data-i18n="faq_a6">Nein, deine Stunden verfallen nicht. Du kannst sie in deinem eigenen Tempo nutzen.</p>
@@ -877,53 +1243,56 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- CONTACT SECTION -->
     <section id="contact" class="contact">
-        <h2 data-i18n="contact_title">Bereit für deine Reise?</h2>
-        <p data-i18n="contact_sub">Mache den ersten Schritt zur Spanisch-Flüssigkeit. Buche jetzt deine kostenlose Probestunde!</p>
+        <h2 data-i18n="contact_title">🚀 Bereit für deine Reise?</h2>
+        <p style="font-size: 1.2rem; margin-top: 10px;" data-i18n="contact_sub">
+            Mache den ersten Schritt zur Spanisch-Flüssigkeit. Buche jetzt deine kostenlose Probestunde!
+        </p>
 
         <div class="contact-info">
             <p>📧 <strong>E-Mail:</strong> anaarellano548@gmail.com</p>
             <p>📸 <strong>Instagram:</strong> @anasspanishmap</p>
             <p>📍 <strong>Zeitzone:</strong> GMT-5 (Peru)</p>
             <br>
-            <a href="https://wa.me/51975755139?text=Hola%20Ana!%20Me%20gustaría%20reservar%20una%20clase%20de%20prueba."
+            <a href="https://wa.me/51975755139?text=Hola%20Ana!%20Me%20gustaría%20reservar%20una%20clase%20de%20prueba%20gratuita%20✨"
                target="_blank"
                class="btn btn-whatsapp"
                data-i18n="btn_whatsapp">
-               <span>💬</span> WhatsApp kontaktieren
+                💬 WhatsApp kontaktieren
             </a>
-            <a href="mailto:anaarellano548@gmail.com?subject=Anfrage%20Probestunde"
+            <a href="mailto:anaarellano548@gmail.com?subject=Anfrage%20Probestunde&body=Hola%20Ana!"
                class="btn btn-ghost"
                data-i18n="btn_email">
-               E-Mail senden
+                📧 E-Mail senden
             </a>
 
             <div class="social-icons">
-                <a href="https://www.instagram.com/anasspanishmap" target="_blank" title="Instagram">📸</a>
-                <a href="https://www.youtube.com/watch?v=dcZf2LLwPew" target="_blank" title="YouTube">📹</a>
-                <a href="https://wa.me/51975755139" target="_blank" title="WhatsApp">💬</a>
+                <a href="https://www.instagram.com/anasspanishmap" target="_blank" title="Instagram" aria-label="Instagram">📸</a>
+                <a href="https://www.youtube.com/watch?v=dcZf2LLwPew" target="_blank" title="YouTube" aria-label="YouTube">📹</a>
+                <a href="https://wa.me/51975755139" target="_blank" title="WhatsApp" aria-label="WhatsApp">💬</a>
             </div>
         </div>
     </section>
 
-    <!-- Sticky Footer mit Blur-Effekt -->
+    <!-- STICKY FOOTER -->
     <footer>
         <div class="footer-left">
-            <strong>Ana's Spanish Map</strong>
+            🗺️ Ana's Spanish Map
         </div>
         <div class="footer-center">
-            <span data-i18n="footer_tagline">#AnasSpanishMap – Your journey to Spanish fluency.</span>
+            <span data-i18n="footer_tagline">#AnasSpanishMap – Your journey to Spanish fluency</span>
         </div>
         <div class="footer-right footer-social">
-            <a href="https://www.instagram.com/anasspanishmap" target="_blank" title="Instagram">📸</a>
-            <a href="https://www.youtube.com/watch?v=dcZf2LLwPew" target="_blank" title="YouTube">📹</a>
-            <a href="https://wa.me/51975755139" target="_blank" title="WhatsApp">💬</a>
+            <a href="https://www.instagram.com/anasspanishmap" target="_blank" title="Instagram" aria-label="Instagram">📸</a>
+            <a href="https://www.youtube.com/watch?v=dcZf2LLwPew" target="_blank" title="YouTube" aria-label="YouTube">📹</a>
+            <a href="https://wa.me/51975755139" target="_blank" title="WhatsApp" aria-label="WhatsApp">💬</a>
         </div>
     </footer>
 
+    <!-- JAVASCRIPT -->
     <script>
-        // --- TRANSLATIONS DATABASE ---
+        // === TRANSLATIONS DATABASE ===
         const translations = {
             de: {
                 nav_about: "Über mich",
@@ -935,30 +1304,30 @@
                 hero_sub: "Lerne Spanisch auf natürliche Weise – mit individuellen Stunden, echten Gesprächen und einer immersiven Lernmethode.",
                 hero_cta: "Buche deine kostenlose Probestunde",
                 hero_cta2: "Routen & Preise ansehen",
-                about_title: "Hola, soy Ana",
+                about_title: "Hola, soy Ana 👋",
                 about_text: "Hallo, ich bin Ana, zertifizierte Spanischlehrerin mit über 6 Jahren Erfahrung im Unterrichten von Jugendlichen und Erwachsenen. Meine Kurse sind dynamisch und persönlich: Du lernst Grammatik im Kontext, erweiterst deinen Wortschatz und gewinnst vor allem Sicherheit in realen Situationen. Ich glaube an enges, klares und motivierendes Lernen, bei dem jede Klasse ein Schritt zu deinem Ziel ist, sicher Spanisch zu sprechen.",
-                video_title: "Lerne mich kennen",
+                video_title: "Lerne mich kennen 🎥",
                 video_subtitle: "Schau dir mein Vorstellungsvideo an und erfahre mehr über meine Methode!",
-                method_title: "Meine Methode: sprachliche Immersion",
-                method_desc: "Immersion ist das Herzstück meiner Methode. Sprache ist hier kein Schulfach, sondern ein lebendiges Umfeld. Vom ersten Tag an ist alles darauf ausgelegt, Spanisch durch Erfahrung zu lernen.",
-                benefit_1: "Verbessert die Flüssigkeit und Sicherheit beim Sprechen.",
-                benefit_2: "Fördert das Hörverständnis in Alltagssituationen.",
-                benefit_3: "Erwerbe Vokabeln und Strukturen praxisnah.",
-                benefit_4: "Verstehe Spanisch so, wie es im echten Leben gesprochen wird.",
+                method_title: "Meine Methode: Sprachliche Immersion",
+                method_desc: "Immersion ist das Herzstück meiner Methode. Sprache ist hier kein Schulfach, sondern ein lebendiges Umfeld. Vom ersten Tag an ist alles darauf ausgelegt, Spanisch durch Erfahrung zu lernen – durch Zuhören, Sprechen, Verstehen und Kreieren, bis es natürlich fließt.",
+                benefit_1: "Verbessert die Flüssigkeit und Sicherheit beim Sprechen",
+                benefit_2: "Fördert das Hörverständnis in Alltagssituationen",
+                benefit_3: "Erwerbe Vokabeln und Strukturen praxisnah und bedeutungsvoll",
+                benefit_4: "Verstehe Spanisch so, wie es im echten Leben gesprochen wird",
                 method_close: '"Lerne Spanisch nicht nur – fühle es, genieße es und mach es zu deinem Eigen."',
-                quiz_title: "Kleines Spanisch Quiz? (Hover/Tap)",
+                quiz_title: "🎯 Kleines Spanisch-Quiz? (Hover/Tap)",
                 q1: 'Wie sagt man "Abenteuer"?',
                 q2: 'Wie sagt man "Reise"?',
                 q3: 'Wie sagt man "Ziel"?',
                 q4: 'Wie sagt man "Freundschaft"?',
-                culture_title: "Mehr als nur Sprache: Erlebe Peru",
+                culture_title: "🇵🇪 Mehr als nur Sprache: Erlebe Peru",
                 culture_text: "Sprache und Kultur sind untrennbar verbunden. In meinen Kursen tauchen wir auch in die faszinierende Welt Lateinamerikas ein, insbesondere Peru. Von den Farben der Anden bis zur Herzlichkeit der Menschen – du lernst nicht nur Vokabeln, sondern verstehst den Kontext, die Redewendungen und das Lebensgefühl.",
-                culture_sub: "Lerne Spanisch mit dem Herzen Perus. 🇵🇪",
-                church_title: "Architektur & Geschichte",
+                culture_sub: "Lerne Spanisch mit dem Herzen Perus. 💙",
+                church_title: "⛪ Architektur & Geschichte",
                 church_text: "Jede Stadt erzählt eine Geschichte. Wir nutzen Bilder, virtuelle Reisen und kulturelle Anekdoten, um den Unterricht lebendig zu machen. So bleibt das Gelernte besser im Gedächtnis. Peru ist ein Land voller Traditionen, Geschichte und lebendiger Kultur – erlebe es in jeder Stunde!",
-                price_title: "Wähle deine Route",
+                price_title: "🗺️ Wähle deine Route",
                 pack1_name: "La Ruta Maestra",
-                pack1_sub: "16 Haltestellen, ein Ziel: Beherrsche die Karte des Spanischen.",
+                pack1_sub: "16 paradas, un solo destino: dominar el mapa del español.",
                 pack1_feat1: "~16 Stunden à 50 Minuten",
                 pack1_feat2: "Voll personalisierter Plan nach Niveau & Zielen",
                 pack1_feat3: "Intensiv: Konversation, Vokabeln, Grammatik",
@@ -970,7 +1339,7 @@
                 pack1_feat9: "Support per WhatsApp & E-Mail",
                 pack1_bonus: "✨ Bonus: +3 Extra Klassen bei Abschluss",
                 pack2_name: "Ruta Intermedia",
-                pack2_sub: "Ein sprachliches Abenteuer, um das nächste Level zu erreichen.",
+                pack2_sub: "Una aventura lingüística para subir de nivel.",
                 pack2_feat1: "~8 Stunden à 50 Minuten",
                 pack2_feat2: "Dynamische Stunden, angepasst an Niveau & Interessen",
                 pack2_feat3: "Ausgewogene Mischung: Grammatik, Sprechen, Hören",
@@ -980,7 +1349,7 @@
                 pack2_feat7: "Gleiche Flexibilität: kein Verfall, Umbuchung 24h",
                 pack2_feat8: "WhatsApp & E-Mail Support",
                 pack3_name: "Ruta Exprés",
-                pack3_sub: "Ein Kompass für alle, die ein konkretes Thema bearbeiten wollen.",
+                pack3_sub: "Una brújula para quien quiere trabajar algo puntual.",
                 pack3_feat1: "4 Stunden à 50 Minuten",
                 pack3_feat2: "Personalisiert, intensiv, fokussiert auf ein konkretes Thema",
                 pack3_feat3: "Konversation, Vokabeln, Grammatik",
@@ -989,7 +1358,7 @@
                 pack3_feat6: "Umbuchung bis 24h vorher",
                 pack3_feat7: "WhatsApp & E-Mail Support",
                 btn_book: "Route buchen",
-                testi_title: "Was meine Schüler sagen",
+                testi_title: "💬 Was meine Schüler sagen",
                 faq_q1: "Was beinhaltet die kostenlose Probestunde?",
                 faq_a1: "Eine 30-minütige Sitzung zum Kennenlernen, Niveau testen, Ziele klären und erklären, wie ich dir helfen kann, deine Ziele zu erreichen.",
                 faq_q2: "Wie ist die Stornierungspolitik?",
@@ -1002,44 +1371,44 @@
                 faq_a5: "Ich unterrichte Erwachsene vom Niveau A1 bis B2. Jeder Kurs wird individuell an dein Level angepasst.",
                 faq_q6: "Verfallen die gebuchten Stunden?",
                 faq_a6: "Nein, deine Stunden verfallen nicht. Du kannst sie in deinem eigenen Tempo nutzen.",
-                contact_title: "Bereit für deine Reise?",
+                contact_title: "🚀 Bereit für deine Reise?",
                 contact_sub: "Mache den ersten Schritt zur Spanisch-Flüssigkeit. Buche jetzt deine kostenlose Probestunde!",
                 btn_whatsapp: "💬 WhatsApp kontaktieren",
-                btn_email: "E-Mail senden",
-                footer_tagline: "#AnasSpanishMap – Your journey to Spanish fluency."
+                btn_email: "📧 E-Mail senden",
+                footer_tagline: "#AnasSpanishMap – Your journey to Spanish fluency"
             },
             en: {
                 nav_about: "About",
                 nav_method: "Method",
-                nav_pricing: "Prices",
+                nav_pricing: "Pricing",
                 nav_testimonials: "Reviews",
                 nav_contact: "Contact",
                 hero_title: "Your map to Spanish fluency.",
                 hero_sub: "Learn Spanish naturally with personalized lessons, real conversation, and an immersive teaching method.",
                 hero_cta: "Book your free trial class",
                 hero_cta2: "View routes & prices",
-                about_title: "Hola, soy Ana",
+                about_title: "Hola, soy Ana 👋",
                 about_text: "Hello, I'm Ana, a certified Spanish teacher with over 6 years of experience teaching teenagers and adults. My classes are dynamic and personalized: You will learn grammar in context, expand your vocabulary, and above all, gain confidence in real situations. I believe in close, clear, and motivating learning, where every class is a step toward your goal of speaking Spanish confidently.",
-                video_title: "Meet me",
+                video_title: "Meet me 🎥",
                 video_subtitle: "Watch my introduction video and learn more about my method!",
-                method_title: "My method: linguistic immersion",
-                method_desc: "Immersion is the heart of my method. Language here stops being just a subject and becomes a living environment. From day one, everything is designed for you to learn Spanish through experience.",
-                benefit_1: "Improves fluency and confidence when speaking.",
-                benefit_2: "Favors listening comprehension in daily situations.",
-                benefit_3: "Acquire vocabulary and structures practically.",
-                benefit_4: "Understand Spanish as it is spoken in real life.",
+                method_title: "My method: Linguistic Immersion",
+                method_desc: "Immersion is the heart of my method. Language here stops being just a subject and becomes a living environment. From day one, everything is designed for you to learn Spanish through experience – listening, speaking, understanding and creating, until it flows naturally.",
+                benefit_1: "Improves fluency and confidence when speaking",
+                benefit_2: "Enhances listening comprehension in daily situations",
+                benefit_3: "Acquire vocabulary and structures in a practical and meaningful way",
+                benefit_4: "Understand Spanish as it is spoken in real life",
                 method_close: '"Don\'t just learn Spanish – feel it, enjoy it, and make it yours."',
-                quiz_title: "Quick Spanish Quiz? (Hover/Tap)",
+                quiz_title: "🎯 Quick Spanish Quiz? (Hover/Tap)",
                 q1: 'How do you say "Adventure"?',
                 q2: 'How do you say "Journey"?',
-                q3: 'How do you say "Destiny"?',
+                q3: 'How do you say "Destination"?',
                 q4: 'How do you say "Friendship"?',
-                culture_title: "More than just language: Experience Peru",
+                culture_title: "🇵🇪 More than just language: Experience Peru",
                 culture_text: "Language and culture are inseparable. In my classes, we also dive into the fascinating world of Latin America, especially Peru. From the colors of the Andes to the warmth of the people – you don't just learn vocabulary, but understand the context, idioms and the way of life.",
-                culture_sub: "Learn Spanish with the heart of Peru. 🇵🇪",
-                church_title: "Architecture & History",
-                church_text: "Every city tells a story. We use images, virtual trips, and cultural anecdotes to make the lessons alive. This helps what you learn stick better. Peru is a land full of traditions, history and vibrant culture – experience it in every lesson!",
-                price_title: "Choose your Route",
+                culture_sub: "Learn Spanish with the heart of Peru. 💙",
+                church_title: "⛪ Architecture & History",
+                church_text: "Every city tells a story. We use images, virtual trips, and cultural anecdotes to make the lessons come alive. This helps what you learn stick better. Peru is a land full of traditions, history and vibrant culture – experience it in every lesson!",
+                price_title: "🗺️ Choose your Route",
                 pack1_name: "La Ruta Maestra",
                 pack1_sub: "16 stops, one destination: master the map of Spanish.",
                 pack1_feat1: "~16 hours of 50-minute classes",
@@ -1057,7 +1426,7 @@
                 pack2_feat1: "~8 hours of 50-minute lessons",
                 pack2_feat2: "Dynamic lessons adapted to level and interests",
                 pack2_feat3: "Balanced focus: grammar, speaking, listening",
-                pack2_feat4: "Clear focus for improvement in every lesson",
+                pack2_feat4: "Clear goals for improvement in every lesson",
                 pack2_feat5: "Mini-challenges between classes",
                 pack2_feat6: "Materials + homework + feedback",
                 pack2_feat7: "Same flexibility: no expiration, 24h changes",
@@ -1072,7 +1441,7 @@
                 pack3_feat6: "Changes up to 24h in advance",
                 pack3_feat7: "WhatsApp & email support",
                 btn_book: "Book route",
-                testi_title: "What my students say",
+                testi_title: "💬 What my students say",
                 faq_q1: "What does the free trial include?",
                 faq_a1: "A 30-minute session to meet, test your level, clarify goals and explain how I can help you achieve your goals.",
                 faq_q2: "What is the cancellation policy?",
@@ -1085,11 +1454,11 @@
                 faq_a5: "I teach adults from level A1 to B2. Each course is individually adapted to your level.",
                 faq_q6: "Do booked hours expire?",
                 faq_a6: "No, your hours do not expire. You can use them at your own pace.",
-                contact_title: "Ready for your journey?",
+                contact_title: "🚀 Ready for your journey?",
                 contact_sub: "Take the first step toward Spanish fluency. Book your free trial class now!",
                 btn_whatsapp: "💬 Contact via WhatsApp",
-                btn_email: "Send Email",
-                footer_tagline: "#AnasSpanishMap – Your journey to Spanish fluency."
+                btn_email: "📧 Send Email",
+                footer_tagline: "#AnasSpanishMap – Your journey to Spanish fluency"
             },
             es: {
                 nav_about: "Sobre mí",
@@ -1101,28 +1470,28 @@
                 hero_sub: "Aprende español de forma natural con clases personalizadas, conversación real y un método de inmersión lingüística.",
                 hero_cta: "Reserva tu clase de prueba gratuita",
                 hero_cta2: "Ver rutas y precios",
-                about_title: "Hola, soy Ana",
+                about_title: "Hola, soy Ana 👋",
                 about_text: "Hola, soy Ana, profesora de español certificada con más de 6 años de experiencia enseñando a jóvenes y adultos. Mis clases son dinámicas y personalizadas: aprenderás gramática en contexto, ampliarás tu vocabulario y, sobre todo, ganarás confianza para comunicarte en situaciones reales. Creo en un aprendizaje cercano, claro y motivador, donde cada clase es un paso hacia tu meta de hablar español con seguridad.",
-                video_title: "Conóceme",
+                video_title: "Conóceme 🎥",
                 video_subtitle: "¡Mira mi video de presentación y descubre más sobre mi método!",
-                method_title: "Mi metodología: inmersión lingüística",
-                method_desc: "La inmersión lingüística es el corazón de mi método. El idioma deja de ser solo una materia y se convierte en un entorno vivo. Desde el primer día cada palabra está diseñada para que el español se aprenda viviendo la experiencia.",
-                benefit_1: "Mejora la fluidez y la seguridad al hablar.",
-                benefit_2: "Favorece la comprensión auditiva en situaciones cotidianas.",
-                benefit_3: "Permite adquirir vocabulario de manera práctica y significativa.",
-                benefit_4: "Comprenderás el español tal como se escucha en la vida real.",
+                method_title: "Mi metodología: Inmersión lingüística",
+                method_desc: "La inmersión lingüística es el corazón de mi método. El idioma deja de ser solo una materia y se convierte en un entorno vivo. Desde el primer día todo está diseñado para que aprendas español viviendo la experiencia – escuchando, hablando, comprendiendo y creando, hasta que fluya con naturalidad.",
+                benefit_1: "Mejora la fluidez y la seguridad al hablar",
+                benefit_2: "Favorece la comprensión auditiva en situaciones cotidianas",
+                benefit_3: "Permite adquirir vocabulario de manera práctica y significativa",
+                benefit_4: "Comprenderás el español tal como se escucha en la vida real",
                 method_close: '"No solo aprendas español, siéntelo, disfrútalo y hazlo tuyo."',
-                quiz_title: "¿Quiz rápido de español? (Hover/Tap)",
+                quiz_title: "🎯 ¿Quiz rápido de español? (Hover/Tap)",
                 q1: '¿Cómo se dice "Adventure" en español?',
                 q2: '¿Cómo se dice "Journey" en español?',
-                q3: '¿Cómo se dice "Destiny" en español?',
+                q3: '¿Cómo se dice "Destination" en español?',
                 q4: '¿Cómo se dice "Friendship" en español?',
-                culture_title: "Más que un idioma: Vive Perú",
+                culture_title: "🇵🇪 Más que un idioma: Vive Perú",
                 culture_text: "Idioma y cultura son inseparables. En mis clases nos sumergimos en el fascinante mundo de Latinoamérica, especialmente Perú. Desde los colores de los Andes hasta la calidez de la gente, entenderás el contexto, las expresiones y el sentimiento de vida.",
-                culture_sub: "Aprende español con el corazón de Perú. 🇵🇪",
-                church_title: "Arquitectura e Historia",
+                culture_sub: "Aprende español con el corazón de Perú. 💙",
+                church_title: "⛪ Arquitectura e Historia",
                 church_text: "Cada ciudad cuenta una historia. Usamos imágenes, viajes virtuales y anécdotas culturales para dar vida a la clase. Así el aprendizaje perdura. Perú es un país lleno de tradiciones, historia y cultura vibrante – ¡vívelo en cada clase!",
-                price_title: "Elige tu ruta de aprendizaje",
+                price_title: "🗺️ Elige tu ruta de aprendizaje",
                 pack1_name: "La Ruta Maestra",
                 pack1_sub: "16 paradas, un solo destino: dominar el mapa del español.",
                 pack1_feat1: "~16 horas de clases de 50 minutos",
@@ -1155,7 +1524,7 @@
                 pack3_feat6: "Cambios hasta 24h antes",
                 pack3_feat7: "Soporte por WhatsApp y email",
                 btn_book: "Reservar ruta",
-                testi_title: "Lo que dicen mis alumnos",
+                testi_title: "💬 Lo que dicen mis alumnos",
                 faq_q1: "¿Qué incluye la clase de prueba gratuita?",
                 faq_a1: "Una sesión de 30 minutos para conocernos, evaluar tu nivel, aclarar objetivos y explicar cómo puedo ayudarte a alcanzar tus metas.",
                 faq_q2: "¿Cuál es la política de cancelación?",
@@ -1168,17 +1537,16 @@
                 faq_a5: "Enseño a adultos desde el nivel A1 hasta B2. Cada curso se adapta individualmente a tu nivel.",
                 faq_q6: "¿Las horas reservadas expiran?",
                 faq_a6: "No, tus horas no expiran. Puedes usarlas a tu propio ritmo.",
-                contact_title: "¿Listo para tu viaje?",
+                contact_title: "🚀 ¿Listo para tu viaje?",
                 contact_sub: "Da el primer paso hacia la fluidez en español. ¡Reserva tu clase de prueba gratuita ahora!",
                 btn_whatsapp: "💬 Contactar por WhatsApp",
-                btn_email: "Enviar Email",
-                footer_tagline: "#AnasSpanishMap – Tu viaje hacia la fluidez en español."
+                btn_email: "📧 Enviar Email",
+                footer_tagline: "#AnasSpanishMap – Tu viaje hacia la fluidez en español"
             }
         };
 
-        // --- CHANGE LANGUAGE FUNCTION ---
+        // === CHANGE LANGUAGE ===
         function changeLanguage(lang) {
-            // Update Text
             const elements = document.querySelectorAll('[data-i18n]');
             elements.forEach(el => {
                 const key = el.getAttribute('data-i18n');
@@ -1187,54 +1555,61 @@
                 }
             });
 
-            // Update Buttons State
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
-
-            // Update HTML lang attribute
             document.documentElement.lang = lang;
         }
 
-        // --- ACCORDION FUNCTION ---
+        // === ACCORDION ===
         function toggleAccordion(element) {
+            const item = element.parentElement;
             const content = element.nextElementSibling;
-            const symbol = element.querySelector('span:last-child');
+            const icon = element.querySelector('.accordion-icon');
 
             if (content.style.maxHeight) {
                 content.style.maxHeight = null;
-                symbol.textContent = '+';
+                icon.textContent = '+';
+                item.classList.remove('active');
             } else {
+                // Close all others
+                document.querySelectorAll('.accordion-content').forEach(c => {
+                    c.style.maxHeight = null;
+                });
+                document.querySelectorAll('.accordion-icon').forEach(i => {
+                    i.textContent = '+';
+                });
+                document.querySelectorAll('.accordion-item').forEach(i => {
+                    i.classList.remove('active');
+                });
+
                 content.style.maxHeight = content.scrollHeight + "px";
-                symbol.textContent = '-';
+                icon.textContent = '−';
+                item.classList.add('active');
             }
         }
 
-        // --- SCROLL ANIMATION OBSERVER ---
+        // === SCROLL ANIMATIONS ===
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('show');
-                    // Special animation for list items
+
+                    // Animate benefits list
                     if(entry.target.classList.contains('method')) {
-                        const items = entry.target.querySelectorAll('li');
+                        const items = entry.target.querySelectorAll('.benefits-list li');
                         items.forEach((item, index) => {
                             setTimeout(() => {
                                 item.classList.add('visible');
-                            }, index * 200);
+                            }, index * 150);
                         });
                     }
                 }
             });
-        }, {
-            threshold: 0.1
-        });
+        }, { threshold: 0.1 });
 
-        const hiddenElements = document.querySelectorAll('.hidden');
-        hiddenElements.forEach((el) => observer.observe(el));
+        document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
 
-        // --- SMOOTH SCROLLING ---
+        // === SMOOTH SCROLL ===
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1247,6 +1622,24 @@
                 }
             });
         });
+
+        // === HEADER SCROLL EFFECT ===
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 100) {
+                header.style.padding = '0.7rem 5%';
+                header.style.boxShadow = '0 4px 30px rgba(0,0,0,0.12)';
+            } else {
+                header.style.padding = '1rem 5%';
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.08)';
+            }
+
+            lastScroll = currentScroll;
+        });
     </script>
+
 </body>
 </html>
